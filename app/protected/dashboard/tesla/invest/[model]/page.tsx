@@ -8,7 +8,7 @@ export default async function InvestInModel({
 }) {
   const { model } = await params;
   const supabase = createClient();
-  const { data } = await supabase
+  const { data }: { data: any } = await supabase
     .from("tesla")
     .select("slug")
     .eq("slug", model)
