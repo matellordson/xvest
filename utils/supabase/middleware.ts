@@ -1,3 +1,4 @@
+import { Database } from "@/database.types";
 import { createServerClient } from "@supabase/ssr";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -12,7 +13,7 @@ export const updateSession = async (request: NextRequest) => {
       },
     });
 
-    const supabase = createServerClient(
+    const supabase = createServerClient<Database>(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
@@ -46,7 +47,7 @@ export const updateSession = async (request: NextRequest) => {
 
     if (request.nextUrl.pathname === "/" && !user.error) {
       return NextResponse.redirect(
-        new URL("/protected/dashbaord", request.url)
+        new URL("/protected/dashboard", request.url)
       );
     }
 
