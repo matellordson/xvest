@@ -1,6 +1,8 @@
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -17,6 +19,12 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const user = createClient();
+
+if (!user) {
+  redirect("/sign-in");
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,9 +39,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="">
-            <p>layout</p>
-          </div>
+          <div className="">{children}</div>
         </ThemeProvider>
       </body>
     </html>
