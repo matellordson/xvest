@@ -33,16 +33,31 @@ export type Database = {
       tesla: {
         Row: {
           model: string
+          plan1: string | null
+          plan2: string | null
+          plan3: string | null
+          plan4: string | null
+          plan5: string | null
           price: string
           slug: string
         }
         Insert: {
           model: string
+          plan1?: string | null
+          plan2?: string | null
+          plan3?: string | null
+          plan4?: string | null
+          plan5?: string | null
           price: string
           slug: string
         }
         Update: {
           model?: string
+          plan1?: string | null
+          plan2?: string | null
+          plan3?: string | null
+          plan4?: string | null
+          plan5?: string | null
           price?: string
           slug?: string
         }
@@ -57,6 +72,7 @@ export type Database = {
           installment: string | null
           model: string | null
           paid: boolean
+          plan: string
         }
         Insert: {
           balance?: string | null
@@ -66,6 +82,7 @@ export type Database = {
           installment?: string | null
           model?: string | null
           paid?: boolean
+          plan: string
         }
         Update: {
           balance?: string | null
@@ -75,6 +92,7 @@ export type Database = {
           installment?: string | null
           model?: string | null
           paid?: boolean
+          plan?: string
         }
         Relationships: [
           {
