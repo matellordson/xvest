@@ -1,3 +1,8 @@
-export default function InvestInModel({ params }: { params: { model: any } }) {
-  return <p>Buy {params.model}</p>;
+export default async function InvestInModel({
+  params,
+}: {
+  params: Promise<{ model: any }>;
+}) {
+  const { model } = await params;
+  return <p>Buy {model}</p>;
 }
