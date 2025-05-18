@@ -1,26 +1,34 @@
 "use client";
 
 import { useState } from "react";
+import addOrder from "./add-order";
+import addFavorite from "./add-favorite";
 
 interface propsType {
+  model: string;
   price: number;
   plan1: number;
   plan2: number;
   plan3: number;
   plan4: number;
   plan5: number;
+  user: string | undefined;
 }
 
 export default function ModelX({
+  model,
   price,
   plan1,
   plan2,
   plan3,
   plan4,
   plan5,
+  user,
 }: propsType) {
+  const [teslaModel, setTeslaModel] = useState<string>(model);
   const [currentPrice, setPrice] = useState<number>(price);
   const [planPrice, setPlanPrice] = useState<number>(0);
+  const [plan, setPlan] = useState<number>(plan1);
 
   const [color, setColor] = useState<string>("stealth grey");
   const [wheels, setWheels] = useState<
@@ -63,16 +71,18 @@ export default function ModelX({
     priceFromSelfDrive;
 
   function order() {
+    const orderModel = teslaModel;
     const orderPrice = price + customPrice;
-    const orderPlan = "not selected";
+    const orderPlan = plan + customPrice;
     const orderColor = color;
     const orderWheels = wheels;
     const orderInterior = interior;
     const orderSeat = seat;
     const orderSteering = steering;
     const orderSelfDrive = selfDrive;
-
-    console.log(
+    const currentUser = user;
+    addOrder({
+      orderModel,
       orderPrice,
       orderPlan,
       orderColor,
@@ -80,8 +90,35 @@ export default function ModelX({
       orderInterior,
       orderSeat,
       orderSteering,
-      orderSelfDrive
-    );
+      orderSelfDrive,
+      currentUser,
+    });
+  }
+
+  function favorite() {
+    const favoriteModel = teslaModel;
+    const favoritePrice = price + customPrice;
+    const favoritePlan = plan + customPrice;
+    const favoriteColor = color;
+    const favoriteWheels = wheels;
+    const favoriteInterior = interior;
+    const favoriteSeat = seat;
+    const favoriteSteering = steering;
+    const favoriteSelfDrive = selfDrive;
+    const currentUser = user;
+
+    addFavorite({
+      favoriteModel,
+      favoritePrice,
+      favoritePlan,
+      favoriteColor,
+      favoriteWheels,
+      favoriteInterior,
+      favoriteSeat,
+      favoriteSteering,
+      favoriteSelfDrive,
+      currentUser,
+    });
   }
 
   return (
@@ -94,11 +131,21 @@ export default function ModelX({
           <span className="font-semibold">Current price:</span> $
           {price + customPrice}
         </p>
-        <button className="border p-px">${plan1 + customPrice}/month</button>
-        <button className="border p-px">${plan2 + customPrice}/month</button>
-        <button className="border p-px">${plan3 + customPrice}/month</button>
-        <button className="border p-px">${plan4 + customPrice}/month</button>
-        <button className="border p-px">${plan5 + customPrice}/month</button>
+        <button onClick={() => setPlan(plan1)} className="border p-px">
+          ${plan1 + customPrice}/month
+        </button>
+        <button onClick={() => setPlan(plan2)} className="border p-px">
+          ${plan2 + customPrice}/month
+        </button>
+        <button onClick={() => setPlan(plan3)} className="border p-px">
+          ${plan3 + customPrice}/month
+        </button>
+        <button onClick={() => setPlan(plan4)} className="border p-px">
+          ${plan4 + customPrice}/month
+        </button>
+        <button onClick={() => setPlan(plan5)} className="border p-px">
+          ${plan5 + customPrice}/month
+        </button>
       </div>
       <hr />
       <div className="">
@@ -369,9 +416,14 @@ export default function ModelX({
             </button>
           </div>
         </form>
-        <button onClick={order} className="my-5 border p-px font-bold">
-          order
-        </button>
+        <div className="space-x-3">
+          <button onClick={order} className="my-5 border p-px font-bold">
+            order now
+          </button>
+          <button onClick={favorite} className="my-5 border p-px font-bold">
+            add to favorite
+          </button>
+        </div>
       </div>
     </div>
   );

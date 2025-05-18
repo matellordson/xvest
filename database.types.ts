@@ -63,46 +63,110 @@ export type Database = {
         }
         Relationships: []
       }
-      "tesla portfolio": {
+      "tesla favorite": {
         Row: {
-          balance: string | null
+          color: string | null
           created_at: string
-          full_price: string | null
           id: string
-          installment: string | null
-          model: string | null
-          paid: boolean
-          plan: string
+          interior: string | null
+          is_favorite: boolean
+          model: string
+          plan: number
+          price: number
+          seat: string | null
+          self_drive: string | null
+          steering: string | null
+          user: string
+          wheels: string | null
         }
         Insert: {
-          balance?: string | null
+          color?: string | null
           created_at?: string
-          full_price?: string | null
-          id: string
-          installment?: string | null
-          model?: string | null
-          paid?: boolean
-          plan: string
+          id?: string
+          interior?: string | null
+          is_favorite?: boolean
+          model: string
+          plan: number
+          price: number
+          seat?: string | null
+          self_drive?: string | null
+          steering?: string | null
+          user: string
+          wheels?: string | null
         }
         Update: {
-          balance?: string | null
+          color?: string | null
           created_at?: string
-          full_price?: string | null
           id?: string
-          installment?: string | null
-          model?: string | null
-          paid?: boolean
-          plan?: string
+          interior?: string | null
+          is_favorite?: boolean
+          model?: string
+          plan?: number
+          price?: number
+          seat?: string | null
+          self_drive?: string | null
+          steering?: string | null
+          user?: string
+          wheels?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "tesla portfolio_model_fkey"
-            columns: ["model"]
-            isOneToOne: false
-            referencedRelation: "tesla"
-            referencedColumns: ["model"]
-          },
-        ]
+        Relationships: []
+      }
+      "tesla order": {
+        Row: {
+          balance: number
+          color: string | null
+          created_at: string
+          id: string
+          interior: string | null
+          is_complete: boolean
+          is_remaining: boolean
+          model: string
+          paid: number
+          plan: number
+          price: number
+          seat: string | null
+          self_drive: string | null
+          steering: string | null
+          user: string
+          wheels: string
+        }
+        Insert: {
+          balance?: number
+          color?: string | null
+          created_at?: string
+          id?: string
+          interior?: string | null
+          is_complete?: boolean
+          is_remaining?: boolean
+          model: string
+          paid?: number
+          plan: number
+          price: number
+          seat?: string | null
+          self_drive?: string | null
+          steering?: string | null
+          user: string
+          wheels: string
+        }
+        Update: {
+          balance?: number
+          color?: string | null
+          created_at?: string
+          id?: string
+          interior?: string | null
+          is_complete?: boolean
+          is_remaining?: boolean
+          model?: string
+          paid?: number
+          plan?: number
+          price?: number
+          seat?: string | null
+          self_drive?: string | null
+          steering?: string | null
+          user?: string
+          wheels?: string
+        }
+        Relationships: []
       }
     }
     Views: {
