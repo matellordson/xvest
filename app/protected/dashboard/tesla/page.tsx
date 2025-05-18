@@ -7,12 +7,15 @@ export default async function TeslaDashboard() {
     .from("tesla")
     .select("model, price, slug");
   return (
-    <div className="divide-y w-fit">
-      {teslaModel?.map((data) => (
-        <div key={data.model}>
-          <Link href={`tesla/invest/${data.slug}`}>{data.model}</Link>
-        </div>
-      ))}
+    <div className="">
+      <Link href={"/protected/dashboard"}>dashboard</Link>
+      <div className="divide-y w-fit">
+        {teslaModel?.map((data) => (
+          <div key={data.model}>
+            <Link href={`tesla/invest/${data.slug}`}>{data.model}</Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
