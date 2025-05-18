@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 
 interface orderType {
   orderModel: string;
@@ -41,6 +42,8 @@ export default async function addOrder({
     steering: orderSteering,
     self_drive: orderSelfDrive,
   });
+
+  redirect("/protected/dashboard");
 
   if (error) {
     console.log(error);

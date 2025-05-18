@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 
 interface favoriteType {
   favoriteModel: string;
@@ -41,6 +42,8 @@ export default async function addFavorite({
     steering: favoriteSteering,
     self_drive: favoriteSelfDrive,
   });
+
+  redirect("/protected/dashboard");
 
   if (error) {
     console.log(error);
