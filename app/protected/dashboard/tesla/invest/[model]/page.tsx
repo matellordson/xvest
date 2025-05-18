@@ -31,14 +31,18 @@ export default async function InvestInModel({
           <p>${tesla![0].price}</p>
           <hr />
           <div>
-            <ModelX
-              price={tesla![0].price}
-              plan1={plans![0].plan1}
-              plan2={plans![0].plan2}
-              plan3={plans![0].plan3}
-              plan4={plans![0].plan4}
-              plan5={plans![0].plan5}
-            />
+            {model == "model-x" ? (
+              <ModelX
+                price={tesla![0].price}
+                plan1={plans![0].plan1}
+                plan2={plans![0].plan2}
+                plan3={plans![0].plan3}
+                plan4={plans![0].plan4}
+                plan5={plans![0].plan5}
+              />
+            ) : (
+              "coming soon..."
+            )}
           </div>
         </div>
       );
