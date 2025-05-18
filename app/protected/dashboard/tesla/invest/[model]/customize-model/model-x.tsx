@@ -27,8 +27,14 @@ export default function ModelX({
 
   return (
     <div className="">
-      <p className="font-semibold">Choose investment plan</p>
+      <p className="font-semibold underline underline-offset-2 ">
+        Choose investment plan
+      </p>
       <div className="flex flex-col space-y-2 w-fit mb-2">
+        <p>
+          <span className="font-semibold">Current price:</span> $
+          {price + priceFromColor}
+        </p>
         <button className="border p-px">${plan1 + priceFromColor}/month</button>
         <button className="border p-px">${plan2 + priceFromColor}/month</button>
         <button className="border p-px">${plan3 + priceFromColor}/month</button>
@@ -37,12 +43,10 @@ export default function ModelX({
       </div>
       <hr />
       <div className="">
-        <p className="font-semibold">Customize</p>
+        <p className="font-semibold underline underline-offset-2 ">Customize</p>
         <p className="border p-px w-fit">
           <span className="font-semibold">color:</span> {color}
         </p>
-        <p>${currentPrice + priceFromColor}</p>
-        <p>${plan1Price + priceFromColor}</p>
         <form action="" className="flex flex-col w-fit items-start">
           <button
             onClick={(e) => {
