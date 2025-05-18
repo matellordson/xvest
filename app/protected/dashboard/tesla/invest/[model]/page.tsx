@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ModelX from "./customize-model/model-x";
 
 export default async function InvestInModel({
   params,
@@ -9,7 +10,7 @@ export default async function InvestInModel({
 }) {
   const { model } = await params;
   const supabase = createClient();
-  const { data: tesla }: { data: any } = await supabase
+  const { data: tesla } = await supabase
     .from("tesla")
     .select()
     .eq("slug", model);
@@ -20,23 +21,24 @@ export default async function InvestInModel({
     .eq("slug", model);
 
   try {
-    if (model == tesla[0].slug) {
+    if (model == tesla![0].slug) {
       return (
         <div>
-          <p>{tesla[0].model}</p>
-          <p>${tesla[0].price}</p>
+          <Link href="/protected/dashboard/tesla" className="pb-5">
+            teslas
+          </Link>
+          <p className="font-semibold">{tesla![0].model}</p>
+          <p>${tesla![0].price}</p>
           <hr />
-          <p>Choose investment plan</p>
           <div>
-            {plans?.map((plan) => (
-              <div key={plan.plan1} className="flex flex-col space-y-2 w-fit">
-                <button className="border p-px">${plan.plan1}/month</button>
-                <button className="border p-px">${plan.plan2}/month</button>
-                <button className="border p-px">${plan.plan3}/month</button>
-                <button className="border p-px">${plan.plan4}/month</button>
-                <button className="border p-px">${plan.plan5}/month</button>
-              </div>
-            ))}
+            <ModelX
+              price={tesla![0].price}
+              plan1={plans![0].plan1}
+              plan2={plans![0].plan2}
+              plan3={plans![0].plan3}
+              plan4={plans![0].plan4}
+              plan5={plans![0].plan5}
+            />
           </div>
         </div>
       );

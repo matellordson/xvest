@@ -33,32 +33,32 @@ export type Database = {
       tesla: {
         Row: {
           model: string
-          plan1: string | null
-          plan2: string | null
-          plan3: string | null
-          plan4: string | null
-          plan5: string | null
-          price: string
+          plan1: number
+          plan2: number
+          plan3: number
+          plan4: number
+          plan5: number
+          price: number
           slug: string
         }
         Insert: {
           model: string
-          plan1?: string | null
-          plan2?: string | null
-          plan3?: string | null
-          plan4?: string | null
-          plan5?: string | null
-          price: string
+          plan1: number
+          plan2: number
+          plan3: number
+          plan4: number
+          plan5: number
+          price: number
           slug: string
         }
         Update: {
           model?: string
-          plan1?: string | null
-          plan2?: string | null
-          plan3?: string | null
-          plan4?: string | null
-          plan5?: string | null
-          price?: string
+          plan1?: number
+          plan2?: number
+          plan3?: number
+          plan4?: number
+          plan5?: number
+          price?: number
           slug?: string
         }
         Relationships: []
