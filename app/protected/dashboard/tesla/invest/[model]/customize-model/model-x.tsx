@@ -200,19 +200,19 @@ export default function ModelX({
                 }
               }}
             >
-              19" crossflow wheels
+              20" cyberstream wheels
             </button>
             <button
               onClick={(e) => {
                 e.preventDefault();
-                setWheels('22\" turbine wheels');
+                setWheels('22" turbine wheels');
                 if (wheelChangePrice == false) {
                   setWheelChangePrice(true);
                   setPriceFromWheel(100);
                 }
               }}
             >
-              20" helix 2.0 wheels
+              22" turbine wheels
             </button>
           </div>
 
