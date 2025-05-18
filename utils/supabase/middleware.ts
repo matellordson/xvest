@@ -13,7 +13,7 @@ export const updateSession = async (request: NextRequest) => {
       },
     });
 
-    const supabase = createServerClient<Database>(
+    const supabase = createServerClient(
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
@@ -23,17 +23,17 @@ export const updateSession = async (request: NextRequest) => {
           },
           setAll(cookiesToSet) {
             cookiesToSet.forEach(({ name, value }) =>
-              request.cookies.set(name, value)
+              request.cookies.set(name, value),
             );
             response = NextResponse.next({
               request,
             });
             cookiesToSet.forEach(({ name, value, options }) =>
-              response.cookies.set(name, value, options)
+              response.cookies.set(name, value, options),
             );
           },
         },
-      }
+      },
     );
 
     // This will refresh session if expired - required for Server Components
@@ -47,7 +47,7 @@ export const updateSession = async (request: NextRequest) => {
 
     if (request.nextUrl.pathname === "/" && !user.error) {
       return NextResponse.redirect(
-        new URL("/protected/dashboard", request.url)
+        new URL("/protected/dashboard", request.url),
       );
     }
 
