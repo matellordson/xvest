@@ -125,51 +125,54 @@ export default function ModelX({
 
   return (
     <div className="">
-      <div className="fixed flex h-screen w-screen items-center justify-center">
+      <div className="flex h-screen w-full items-center justify-center">
         <Image
           src={"/model-order/model-x.png"}
           alt="model-x"
           width={2000}
           height={2000}
           priority
-          className="h-screen w-screen object-cover object-bottom"
+          className="h-full w-full object-cover"
         />
-        <div
-          className="absolute top-[23rem] flex h-[45%] w-screen items-center justify-between bg-black/30"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 3%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.3) 20%)",
-            backdropFilter: "blur(1px) brightness(0.98)",
-            WebkitBackdropFilter: "blur(2px) brightness(0.98)",
-          }}
-        >
-          <div className="flex w-full flex-col items-center justify-center gap-y-9">
-            <p className="pb-5 text-6xl">Model X</p>
-            <div className="flex w-full items-center justify-between px-3">
-              <div className="flex flex-col items-center">
-                <p className="font-semibold">
-                  329<span className="text-xs font-normal">mi</span>
-                </p>
-                <p className="text-sm">Range (EPA est.)</p>
+        <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
+          <div className="h-[60%] w-full bg-transparent"></div>
+          <div
+            className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/30"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 3%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.3) 20%)",
+              backdropFilter: "blur(1px) brightness(0.98)",
+              WebkitBackdropFilter: "blur(2px) brightness(0.98)",
+            }}
+          >
+            <div className="flex w-full flex-col items-center justify-center gap-y-9">
+              <p className="pb-5 text-6xl">Model X</p>
+              <div className="flex w-full items-center justify-between px-3">
+                <div className="flex flex-col items-center">
+                  <p className="font-semibold">
+                    329<span className="text-xs font-normal">mi</span>
+                  </p>
+                  <p className="text-sm">Range (EPA est.)</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="font-semibold">
+                    149<span className="text-xs font-normal">mph</span>
+                  </p>
+                  <p className="text-sm">Top Speed</p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="font-semibold">
+                    3.8<span className="text-xs font-normal">sec</span>
+                  </p>
+                  <p className="text-sm">0-60 mph</p>
+                </div>
               </div>
-              <div className="flex flex-col items-center">
-                <p className="font-semibold">
-                  149<span className="text-xs font-normal">mph</span>
+              <div className="flex flex-col items-center justify-between gap-y-2">
+                <Button>Invest Now</Button>
+                <p className="text-xs text-muted-foreground">
+                  Specs displayed are Model X All-Wheel Drive
                 </p>
-                <p className="text-sm">Top Speed</p>
               </div>
-              <div className="flex flex-col items-center">
-                <p className="font-semibold">
-                  3.8<span className="text-xs font-normal">sec</span>
-                </p>
-                <p className="text-sm">0-60 mph</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-between gap-y-2">
-              <Button>Invest Now</Button>
-              <p className="text-xs text-muted-foreground">
-                Specs displayed are Model X All-Wheel Drive
-              </p>
             </div>
           </div>
         </div>
