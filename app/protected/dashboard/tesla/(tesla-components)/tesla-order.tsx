@@ -9,7 +9,7 @@ export default async function TeslaOrder() {
   const supabase = await createClient();
   const { data: orders } = await supabase
     .from("tesla order")
-    .select("model, price, id, plan");
+    .select("model, price, id, plan, paid");
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
@@ -17,7 +17,7 @@ export default async function TeslaOrder() {
           <Link href={"#"} key={order.id}>
             <div
               key={order.id}
-              className="bg-skin flex items-center justify-between rounded-lg border px-3 py-2"
+              className="bg-skin group flex items-center justify-between rounded-lg border px-3 py-2 transition ease-in-out hover:opacity-90"
             >
               {/* left */}
               <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
@@ -72,7 +72,7 @@ export default async function TeslaOrder() {
               </div>
               <div className="flex w-fit items-center justify-between gap-x-2">
                 <div className="">
-                  <span className="text-lg">
+                  <span className="text-sm tracking-wide">
                     {order.model == "cyber-truck" ? (
                       <p>Cyber Truck</p>
                     ) : order.model == "model-3" ? (
@@ -87,27 +87,13 @@ export default async function TeslaOrder() {
                       ""
                     )}
                   </span>
-                  <span className="text-sm text-muted-foreground">
-                    {order.model == "cyber-truck" ? (
-                      <p>Utility Truck</p>
-                    ) : order.model == "model-3" ? (
-                      <p>Sports Sedan</p>
-                    ) : order.model == "model-s" ? (
-                      <p>Luxury Sedan</p>
-                    ) : order.model == "model-x" ? (
-                      <p>Luxury SUV</p>
-                    ) : order.model == "model-y" ? (
-                      <p>Midsize SUV</p>
-                    ) : (
-                      ""
-                    )}
-                  </span>
+                  <p className="font-semibold tracking-wide">${order.price}</p>
                 </div>
               </div>
               {/* right */}
               <div className="flex flex-col items-center justify-between gap-y-1">
-                <p>${order.price}</p>
-                <p className="text-xs text-muted-foreground">
+                <p className="font-semibold tracking-wide">${order.paid}</p>
+                <p className="text-xs tracking-wide text-muted-foreground">
                   ${order.plan}/month
                 </p>
               </div>
