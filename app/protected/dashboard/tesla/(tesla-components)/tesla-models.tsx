@@ -32,41 +32,46 @@ export default async function TeslaModels() {
               <Image
                 src={"/model-showcase/cyber-truck.png"}
                 alt={"cyber-truck"}
+                priority
                 width={100}
                 height={100}
-                className="w-40"
+                className="w-40 dark:opacity-80"
               />
             ) : data.model == "Model 3" ? (
               <Image
                 src={"/model-showcase/model-3.png"}
                 alt={"model-3"}
+                priority
                 width={100}
                 height={100}
-                className="w-40"
+                className="w-40 dark:opacity-80"
               />
             ) : data.model == "Model S" ? (
               <Image
                 src={"/model-showcase/model-s.png"}
                 alt={"model-s"}
+                priority
                 width={100}
                 height={100}
-                className="w-40"
+                className="w-40 dark:opacity-80"
               />
             ) : data.model == "Model X" ? (
               <Image
                 src={"/model-showcase/model-x.png"}
                 alt={"model-x"}
+                priority
                 width={100}
                 height={100}
-                className="w-40"
+                className="w-40 dark:opacity-80"
               />
             ) : data.model == "Model Y" ? (
               <Image
                 src={"/model-showcase/model-y.png"}
                 alt={"model-y"}
+                priority
                 width={100}
                 height={100}
-                className="w-40"
+                className="w-40 dark:opacity-80"
               />
             ) : (
               ""
@@ -76,7 +81,11 @@ export default async function TeslaModels() {
           <div className="flex flex-col items-center justify-between gap-y-1">
             <Link
               href={`tesla/invest/${data.slug}`}
-              className={buttonVariants({ variant: "outline", size: "sm", className: "bg-inherit" })}
+              className={buttonVariants({
+                variant: "outline",
+                size: "sm",
+                className: "bg-inherit",
+              })}
             >
               Invest Now
             </Link>
