@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,9 +6,10 @@ export const revalidate = 0;
 
 export default async function TeslaOrder() {
   const supabase = await createClient();
-  const { data: orders } = await supabase
+  const { data: orders, count } = await supabase
     .from("tesla order")
     .select("model, price, id, plan, paid");
+
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">

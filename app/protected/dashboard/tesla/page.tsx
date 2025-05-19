@@ -13,6 +13,8 @@ import {
 import TeslaModels from "./(tesla-components)/tesla-models";
 import TeslaOrder from "./(tesla-components)/tesla-order";
 import TeslaFavorite from "./(tesla-components)/tesla-favorite";
+import OrderCount from "./(tesla-components)/(tesla-count)/order-count";
+import FavoriteCount from "./(tesla-components)/(tesla-count)/favorite-count";
 
 export default function ExploreTesla() {
   const portals = [
@@ -23,12 +25,12 @@ export default function ExploreTesla() {
     {
       icon: <ShoppingCart size={20} />,
       label: "Investment",
-      count: 1,
+      count: OrderCount(),
     },
     {
       icon: <Star size={20} />,
       label: "Watchlist",
-      count: 5,
+      count: FavoriteCount(),
     },
   ];
 
