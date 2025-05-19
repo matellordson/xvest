@@ -11,7 +11,7 @@ export default async function TeslaModels() {
     .from("tesla")
     .select("model, price, slug, price, type");
   return (
-    <div className="flex flex-col gap-y-2 px-3">
+    <div className="mx-3 flex flex-col gap-y-2">
       {teslaModel?.map((data) => (
         <div
           key={data.model}
@@ -27,45 +27,48 @@ export default async function TeslaModels() {
             </div>
           </div>
           {/* ceneter */}
-          <div className="absolute left-[35vw] bg-transparent">
+          <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
             {data.model == "Cyber Truck" ? (
               <Image
                 src={"/model-showcase/cyber-truck.png"}
                 alt={"cyber-truck"}
                 width={100}
                 height={100}
-                className="obje w-40"
+                className="w-40"
+              />
+            ) : data.model == "Model 3" ? (
+              <Image
+                src={"/model-showcase/model-3.png"}
+                alt={"model-3"}
+                width={100}
+                height={100}
+                className="w-40"
+              />
+            ) : data.model == "Model S" ? (
+              <Image
+                src={"/model-showcase/model-s.png"}
+                alt={"model-s"}
+                width={100}
+                height={100}
+                className="w-40"
+              />
+            ) : data.model == "Model X" ? (
+              <Image
+                src={"/model-showcase/model-x.png"}
+                alt={"model-x"}
+                width={100}
+                height={100}
+                className="w-40"
+              />
+            ) : data.model == "Model Y" ? (
+              <Image
+                src={"/model-showcase/model-y.png"}
+                alt={"model-y"}
+                width={100}
+                height={100}
+                className="w-40"
               />
             ) : (
-              // ) : data.model == "Model 3" ? (
-              //   <Image
-              //     src={"/model-showcase/model-3.png"}
-              //     alt={"model-3"}
-              //     width={100}
-              //     height={100}
-              //   />
-              // ) : data.model == "Model S" ? (
-              //   <Image
-              //     src={"/model-showcase/model-s.png"}
-              //     alt={"model-s"}
-              //     width={100}
-              //     height={100}
-              //   />
-              // ) : data.model == "Model X" ? (
-              //   <Image
-              //     src={"/model-showcase/model-x.png"}
-              //     alt={"model-x"}
-              //     width={100}
-              //     height={100}
-              //   />
-              // ) : data.model == "Model Y" ? (
-              //   <Image
-              //     src={"/model-showcase/model-y.png"}
-              //     alt={"model-y"}
-              //     width={100}
-              //     height={100}
-              //   />
-              //
               ""
             )}
           </div>
@@ -77,7 +80,9 @@ export default async function TeslaModels() {
             >
               Invest Now
             </Link>
-            <p className="text-xs text-muted-foreground">From ${data.price}</p>
+            <p className="text-xs text-muted-foreground">
+              Sarting ${data.price}
+            </p>
           </div>
         </div>
       ))}
