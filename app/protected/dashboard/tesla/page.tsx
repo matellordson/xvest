@@ -10,7 +10,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { Button } from "@/components/ui/button";
 import TeslaModels from "./(tesla-components)/tesla-models";
 import TeslaOrder from "./(tesla-components)/tesla-order";
 import TeslaFavorite from "./(tesla-components)/tesla-favorite";
@@ -28,7 +27,7 @@ export default function ExploreTesla() {
     },
     {
       icon: <Star size={20} />,
-      label: "Wathlist",
+      label: "Watchlist",
       count: 5,
     },
   ];
@@ -73,7 +72,7 @@ export default function ExploreTesla() {
                     <TeslaModels />
                   ) : portal.label == "Investment" ? (
                     <TeslaOrder />
-                  ) : portal.label == "Whatchlist" ? (
+                  ) : portal.label == "Watchlist" ? (
                     <TeslaFavorite />
                   ) : (
                     ""
