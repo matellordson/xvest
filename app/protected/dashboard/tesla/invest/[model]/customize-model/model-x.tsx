@@ -169,7 +169,7 @@ export default function ModelX({
                 </div>
               </div>
               <div className="flex flex-col items-center justify-between gap-y-2">
-                <Button className="font-bold">Invest Now</Button>
+                <Button>Invest Now</Button>
                 <p className="text-xs text-muted-foreground">
                   Specs displayed are Model X All-Wheel Drive
                 </p>
