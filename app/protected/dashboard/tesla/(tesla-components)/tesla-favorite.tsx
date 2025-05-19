@@ -91,9 +91,6 @@ export default async function TeslaFavorite() {
             </div>
             {/* right */}
             <div className="flex flex-col items-center justify-between gap-y-1">
-              <p className="text-sm tracking-wide text-muted-foreground">
-                ${order.price}
-              </p>
               <Button
                 asChild
                 variant={"outline"}
@@ -101,7 +98,10 @@ export default async function TeslaFavorite() {
                 className="relative"
               >
                 <Link href={"#"}>Invest Now</Link>
-              </Button>{" "}
+              </Button>
+              <p className="text-sm tracking-wide text-muted-foreground">
+                For <span className="font-semibold">${order.price}</span>
+              </p>
             </div>
           </div>
         ))}

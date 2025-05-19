@@ -88,7 +88,7 @@ export default async function TeslaModels() {
               <Link href={`tesla/invest/${data.slug}`}>Invest Now</Link>
             </Button>
             <p className="text-xs text-muted-foreground">
-              Sarting ${data.price}
+              Sarting <span className="font-semibold">${data.price}</span>
             </p>
           </div>
         </div>
