@@ -7,20 +7,20 @@ export const revalidate = 0;
 
 export default async function TeslaFavorite() {
   const supabase = await createClient();
-  const { data: favorite } = await supabase
+  const { data: favorites } = await supabase
     .from("tesla favorite")
     .select("model, price, id, plan");
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
-        {favorite?.map((order) => (
+        {favorites?.map((favorite) => (
           <div
-            key={order.id}
+            key={favorite.id}
             className="bg-skin group flex items-center justify-between rounded-lg border px-3 py-2 transition ease-in-out hover:opacity-90"
           >
             {/* left */}
             <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
-              {order.model == "cyber-truck" ? (
+              {favorite.model == "cyber-truck" ? (
                 <Image
                   src={"/model-showcase/cyber-truck.png"}
                   alt={"cyber-truck"}
@@ -29,7 +29,7 @@ export default async function TeslaFavorite() {
                   height={100}
                   className="w-40 dark:opacity-80"
                 />
-              ) : order.model == "model-3" ? (
+              ) : favorite.model == "model-3" ? (
                 <Image
                   src={"/model-showcase/model-3.png"}
                   alt={"model-3"}
@@ -38,7 +38,7 @@ export default async function TeslaFavorite() {
                   height={100}
                   className="w-40 dark:opacity-80"
                 />
-              ) : order.model == "model-s" ? (
+              ) : favorite.model == "model-s" ? (
                 <Image
                   src={"/model-showcase/model-s.png"}
                   alt={"model-s"}
@@ -47,7 +47,7 @@ export default async function TeslaFavorite() {
                   height={100}
                   className="w-40 dark:opacity-80"
                 />
-              ) : order.model == "model-x" ? (
+              ) : favorite.model == "model-x" ? (
                 <Image
                   src={"/model-showcase/model-x.png"}
                   alt={"model-x"}
@@ -56,7 +56,7 @@ export default async function TeslaFavorite() {
                   height={100}
                   className="w-40 dark:opacity-80"
                 />
-              ) : order.model == "model-y" ? (
+              ) : favorite.model == "model-y" ? (
                 <Image
                   src={"/model-showcase/model-y.png"}
                   alt={"model-y"}
@@ -72,21 +72,21 @@ export default async function TeslaFavorite() {
             <div className="flex w-fit items-center justify-between gap-x-2">
               <div className="">
                 <span className="text-sm tracking-wide">
-                  {order.model == "cyber-truck" ? (
+                  {favorite.model == "cyber-truck" ? (
                     <p>Cyber Truck</p>
-                  ) : order.model == "model-3" ? (
+                  ) : favorite.model == "model-3" ? (
                     <p>Model 3</p>
-                  ) : order.model == "model-s" ? (
+                  ) : favorite.model == "model-s" ? (
                     <p>Model S</p>
-                  ) : order.model == "model-x" ? (
+                  ) : favorite.model == "model-x" ? (
                     <p>Model X</p>
-                  ) : order.model == "model-y" ? (
+                  ) : favorite.model == "model-y" ? (
                     <p>Model Y</p>
                   ) : (
                     ""
                   )}
                 </span>
-                <p className="font-semibold tracking-wide">${order.plan}</p>
+                <p className="font-semibold tracking-wide">${favorite.price}</p>
               </div>
             </div>
             {/* right */}
@@ -100,7 +100,7 @@ export default async function TeslaFavorite() {
                 <Link href={"#"}>Invest Now</Link>
               </Button>
               <p className="text-sm tracking-wide text-muted-foreground">
-                For <span className="font-semibold">${order.price}</span>
+                <span className="font-semibold">${favorite.plan}</span>/month
               </p>
             </div>
           </div>

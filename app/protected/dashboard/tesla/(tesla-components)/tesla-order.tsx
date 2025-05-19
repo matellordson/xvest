@@ -94,7 +94,7 @@ export default async function TeslaOrder() {
               <div className="flex flex-col items-center justify-between gap-y-1">
                 <p className="font-semibold tracking-wide">${order.paid}</p>
                 <p className="text-xs tracking-wide text-muted-foreground">
-                  ${order.plan}/month
+                  <span className="font-semibold">${order.plan}</span>/month
                 </p>
               </div>
             </div>
