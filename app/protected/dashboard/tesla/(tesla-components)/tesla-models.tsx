@@ -76,7 +76,7 @@ export default async function TeslaModels() {
           <div className="flex flex-col items-center justify-between gap-y-1">
             <Link
               href={`tesla/invest/${data.slug}`}
-              className={buttonVariants({ variant: "outline", size: "sm" })}
+              className={buttonVariants({ variant: "outline", size: "sm", className: "bg-inherit" })}
             >
               Invest Now
             </Link>

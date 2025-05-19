@@ -66,10 +66,8 @@ export default function ExploreTesla() {
                 </DrawerTrigger>
                 <DrawerContent className="pb-5">
                   <DrawerHeader>
-                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-                    <DrawerDescription>
-                      This action cannot be undone.
-                    </DrawerDescription>
+                    <DrawerTitle></DrawerTitle>
+                    <DrawerDescription></DrawerDescription>
                   </DrawerHeader>
                   {portal.label == "Models" ? (
                     <TeslaModels />
