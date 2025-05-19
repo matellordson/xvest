@@ -3,6 +3,8 @@
 import { useState } from "react";
 import addOrder from "./add-order";
 import addFavorite from "./add-favorite";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 interface propsType {
   model: string;
@@ -41,7 +43,7 @@ export default function ModelX({
     "five seat interior" | "six seat interior" | "seven seat interior"
   >("five seat interior");
   const [steering, setSteering] = useState<"steering wheel" | "yoke steering">(
-    "steering wheel"
+    "steering wheel",
   );
   const [selfDrive, setSelfDrive] = useState<"yes" | "no">("no");
 
@@ -123,306 +125,53 @@ export default function ModelX({
 
   return (
     <div className="">
-      <p className="font-semibold underline underline-offset-2 ">
-        Choose investment plan
-      </p>
-      <div className="flex flex-col space-y-2 w-fit mb-2">
-        <p>
-          <span className="font-semibold">Current price:</span> $
-          {price + customPrice}
-        </p>
-        <button onClick={() => setPlan(plan1)} className="border p-px">
-          ${plan1 + customPrice}/month
-        </button>
-        <button onClick={() => setPlan(plan2)} className="border p-px">
-          ${plan2 + customPrice}/month
-        </button>
-        <button onClick={() => setPlan(plan3)} className="border p-px">
-          ${plan3 + customPrice}/month
-        </button>
-        <button onClick={() => setPlan(plan4)} className="border p-px">
-          ${plan4 + customPrice}/month
-        </button>
-        <button onClick={() => setPlan(plan5)} className="border p-px">
-          ${plan5 + customPrice}/month
-        </button>
-      </div>
-      <hr />
-      <div className="">
-        <p className="font-semibold underline underline-offset-2 ">Customize</p>
-        <form action="" className="flex flex-col w-fit items-start space-y-3">
-          {/* COLOR */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">color:</span> {color}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("stealth grey");
-                if (colorChangePrice == true) {
-                  setColorChangePrice(false);
-                  setPriceFromColor(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              stealth grey
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("pearl white multi-coat");
-                if (colorChangePrice == false) {
-                  setColorChangePrice(true);
-                  setPriceFromColor(100);
-                }
-              }}
-            >
-              pearl white multi-coat
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("deep blue metallic");
-                if (colorChangePrice == false) {
-                  setColorChangePrice(true);
-                  setPriceFromColor(100);
-                }
-              }}
-            >
-              deep blue metallic
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("solid black");
-                if (colorChangePrice == false) {
-                  setColorChangePrice(true);
-                  setPriceFromColor(100);
-                }
-              }}
-            >
-              solid black
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("ultra red");
-                if (colorChangePrice == false) {
-                  setColorChangePrice(true);
-                  setPriceFromColor(100);
-                }
-              }}
-            >
-              ultra red
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setColor("luna silver");
-                if (colorChangePrice == false) {
-                  setColorChangePrice(true);
-                  setPriceFromColor(100);
-                }
-              }}
-            >
-              luna silver
-            </button>
+      <div className="fixed flex h-screen w-screen items-center justify-center">
+        <Image
+          src={"/model-order/model-x.png"}
+          alt="model-x"
+          width={2000}
+          height={2000}
+          priority
+          className="h-screen w-screen object-cover object-bottom"
+        />
+        <div
+          className="absolute top-[23rem] flex h-[45%] w-screen items-center justify-between bg-black/30"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 3%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.3) 20%)",
+            backdropFilter: "blur(1px) brightness(0.98)",
+            WebkitBackdropFilter: "blur(2px) brightness(0.98)",
+          }}
+        >
+          <div className="flex w-full flex-col items-center justify-center gap-y-9">
+            <p className="pb-5 text-6xl">Model X</p>
+            <div className="flex w-full items-center justify-between px-3">
+              <div className="flex flex-col items-center">
+                <p className="font-semibold">
+                  329<span className="text-xs font-normal">mi</span>
+                </p>
+                <p className="text-sm">Range (EPA est.)</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <p className="font-semibold">
+                  149<span className="text-xs font-normal">mph</span>
+                </p>
+                <p className="text-sm">Top Speed</p>
+              </div>
+              <div className="flex flex-col items-center">
+                <p className="font-semibold">
+                  3.8<span className="text-xs font-normal">sec</span>
+                </p>
+                <p className="text-sm">0-60 mph</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-between gap-y-2">
+              <Button>Invest Now</Button>
+              <p className="text-xs text-muted-foreground">
+                Specs displayed are Model X All-Wheel Drive
+              </p>
+            </div>
           </div>
-
-          {/* WHEEL */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">wheels:</span> {wheels}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setWheels('20" cyberstream wheels');
-                if (wheelChangePrice == true) {
-                  setWheelChangePrice(false);
-                  setPriceFromWheel(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              20" cyberstream wheels
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setWheels('22" turbine wheels');
-                if (wheelChangePrice == false) {
-                  setWheelChangePrice(true);
-                  setPriceFromWheel(100);
-                }
-              }}
-            >
-              22" turbine wheels
-            </button>
-          </div>
-
-          {/* INTERIOR COLOR */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">interior color:</span> {interior}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setInterior("all black");
-                if (interiorChangePrice == true) {
-                  setInteriorChangePrice(false);
-                  setPriceFromInterior(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              all black
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setInterior("black and white");
-                if (interiorChangePrice == false) {
-                  setInteriorChangePrice(true);
-                  setPriceFromInterior(100);
-                }
-              }}
-            >
-              black and white
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setInterior("cream");
-                if (interiorChangePrice == false) {
-                  setInteriorChangePrice(true);
-                  setPriceFromInterior(100);
-                }
-              }}
-            >
-              cream
-            </button>
-          </div>
-
-          {/* SEAT */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">seat interior:</span> {seat}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSeat("five seat interior");
-                if (seatChangePrice == true) {
-                  setSeatChangePrice(false);
-                  setPriceFromSeat(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              five seat interior
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSeat("six seat interior");
-                if (seatChangePrice == false) {
-                  setSeatChangePrice(true);
-                  setPriceFromSeat(100);
-                }
-              }}
-            >
-              six seat interior
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSeat("seven seat interior");
-                if (seatChangePrice == false) {
-                  setSeatChangePrice(true);
-                  setPriceFromSeat(100);
-                }
-              }}
-            >
-              seven seat interior
-            </button>
-          </div>
-
-          {/* STEERING WHEEL */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">steering wheel:</span> {steering}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSteering("steering wheel");
-                if (steeringChangePrice == true) {
-                  setSteeringChangePrice(false);
-                  setPriceFromSteering(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              steering wheel
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSteering("yoke steering");
-                if (steeringChangePrice == false) {
-                  setSteeringChangePrice(true);
-                  setPriceFromSteering(100);
-                }
-              }}
-            >
-              york steering
-            </button>
-          </div>
-
-          {/* SELF DRIVE */}
-          <div className="flex flex-col items-start">
-            <p className="border p-px w-fit">
-              <span className="font-semibold">self drive (supervised):</span>{" "}
-              {selfDrive}
-            </p>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSelfDrive("no");
-                if (selfDriveChangePrice == true) {
-                  setSelfDriveChangePrice(false);
-                  setPriceFromSelfDrive(0);
-                  setPlanPrice(plan1);
-                }
-              }}
-            >
-              no
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                setSelfDrive("yes");
-                if (selfDriveChangePrice == false) {
-                  setSelfDriveChangePrice(true);
-                  setPriceFromSelfDrive(800);
-                }
-              }}
-            >
-              yes
-            </button>
-          </div>
-        </form>
-        <div className="space-x-3">
-          <button onClick={order} className="my-5 border p-px font-bold">
-            order now
-          </button>
-          <button onClick={favorite} className="my-5 border p-px font-bold">
-            add to favorite
-          </button>
         </div>
       </div>
     </div>

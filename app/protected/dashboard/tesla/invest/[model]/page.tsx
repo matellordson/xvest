@@ -29,12 +29,9 @@ export default async function InvestInModel({
     if (model == tesla![0].slug) {
       return (
         <div>
-          <Link href="/protected/dashboard/tesla" className="pb-5">
+          {/* <Link href="/protected/dashboard/tesla" className="pb-5">
             dashboard
-          </Link>
-          <p className="font-semibold">{tesla![0].model}</p>
-          <p>${tesla![0].price}</p>
-          <hr />
+          </Link> */}
           <div>
             {model == "model-x" ? (
               <ModelX
