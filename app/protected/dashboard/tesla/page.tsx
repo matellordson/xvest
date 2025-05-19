@@ -19,16 +19,16 @@ export default function ExploreTesla() {
   const portals = [
     {
       icon: <Car size={20} />,
-      label: "Models",
+      label: "Select Model",
     },
     {
       icon: <ShoppingCart size={20} />,
-      label: "Investments",
+      label: "Investment",
       count: 1,
     },
     {
       icon: <Star size={20} />,
-      label: "Garage",
+      label: "Wathlist",
       count: 5,
     },
   ];
@@ -69,11 +69,11 @@ export default function ExploreTesla() {
                     <DrawerTitle></DrawerTitle>
                     <DrawerDescription></DrawerDescription>
                   </DrawerHeader>
-                  {portal.label == "Models" ? (
+                  {portal.label == "Select Model" ? (
                     <TeslaModels />
-                  ) : portal.label == "Investments" ? (
+                  ) : portal.label == "Investment" ? (
                     <TeslaOrder />
-                  ) : portal.label == "Garage" ? (
+                  ) : portal.label == "Whatchlist" ? (
                     <TeslaFavorite />
                   ) : (
                     ""

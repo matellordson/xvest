@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/client";
 import Link from "next/link";
 import Image from "next/image";
@@ -79,16 +79,14 @@ export default async function TeslaModels() {
           </div>
           {/* right */}
           <div className="flex flex-col items-center justify-between gap-y-1">
-            <Link
-              href={`tesla/invest/${data.slug}`}
-              className={buttonVariants({
-                variant: "outline",
-                size: "sm",
-                className: "bg-inherit",
-              })}
+            <Button
+              asChild
+              variant={"outline"}
+              size={"sm"}
+              className="relative"
             >
-              Invest Now
-            </Link>
+              <Link href={`tesla/invest/${data.slug}`}>Invest Now</Link>
+            </Button>
             <p className="text-xs text-muted-foreground">
               Sarting ${data.price}
             </p>
