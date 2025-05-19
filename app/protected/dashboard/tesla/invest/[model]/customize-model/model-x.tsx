@@ -5,6 +5,14 @@ import addOrder from "./add-order";
 import addFavorite from "./add-favorite";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 interface propsType {
   model: string;
@@ -169,7 +177,21 @@ export default function ModelX({
                 </div>
               </div>
               <div className="flex flex-col items-center justify-between gap-y-2">
-                <Button>Invest Now</Button>
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button>Invest Now</Button>
+                  </SheetTrigger>
+                  <SheetContent>
+                    <SheetHeader>
+                      <SheetTitle>Are you absolutely sure?</SheetTitle>
+                      <SheetDescription>
+                        This action cannot be undone. This will permanently
+                        delete your account and remove your data from our
+                        servers.
+                      </SheetDescription>
+                    </SheetHeader>
+                  </SheetContent>
+                </Sheet>
                 <p className="text-xs text-muted-foreground">
                   Specs displayed are Model X All-Wheel Drive values.
                 </p>
