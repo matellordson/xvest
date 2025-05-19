@@ -40,6 +40,7 @@ export type Database = {
           plan5: number
           price: number
           slug: string
+          type: string
         }
         Insert: {
           model: string
@@ -50,6 +51,7 @@ export type Database = {
           plan5: number
           price: number
           slug: string
+          type: string
         }
         Update: {
           model?: string
@@ -60,6 +62,7 @@ export type Database = {
           plan5?: number
           price?: number
           slug?: string
+          type?: string
         }
         Relationships: []
       }

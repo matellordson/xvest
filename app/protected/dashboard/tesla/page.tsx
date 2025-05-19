@@ -19,21 +19,17 @@ export default function ExploreTesla() {
   const portals = [
     {
       icon: <Car size={20} />,
-      label: "Model",
+      label: "Models",
     },
     {
       icon: <ShoppingCart size={20} />,
-      label: "Order",
+      label: "Investments",
       count: 1,
     },
     {
       icon: <Star size={20} />,
-      label: "Favorite",
+      label: "Garage",
       count: 5,
-    },
-    {
-      icon: <Shapes size={20} />,
-      label: "Campare",
     },
   ];
 
@@ -68,18 +64,18 @@ export default function ExploreTesla() {
                     </div>
                   </div>
                 </DrawerTrigger>
-                <DrawerContent>
+                <DrawerContent className="pb-5">
                   <DrawerHeader>
                     <DrawerTitle>Are you absolutely sure?</DrawerTitle>
                     <DrawerDescription>
                       This action cannot be undone.
                     </DrawerDescription>
                   </DrawerHeader>
-                  {portal.label == "Model" ? (
+                  {portal.label == "Models" ? (
                     <TeslaModels />
-                  ) : portal.label == "Order" ? (
+                  ) : portal.label == "Investments" ? (
                     <TeslaOrder />
-                  ) : portal.label == "Favorite" ? (
+                  ) : portal.label == "Garage" ? (
                     <TeslaFavorite />
                   ) : (
                     ""
