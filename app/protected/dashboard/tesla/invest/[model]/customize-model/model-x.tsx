@@ -135,7 +135,7 @@ export default function ModelX({
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
-          <div className="text-shadow h-[60%] w-full bg-transparent pt-5 text-center">
+          <div className="text-shadow h-[60%] w-full pt-5 text-center">
             <p className="pb-5 text-6xl">Model X</p>
           </div>
           <div
@@ -147,8 +147,8 @@ export default function ModelX({
               WebkitBackdropFilter: "blur(2px) brightness(0.98)",
             }}
           >
-            <div className="flex w-full flex-col items-center justify-center gap-y-9">
-              <div className="flex w-full items-start justify-between px-5">
+            <div className="flex h-full w-full flex-col items-center justify-start gap-y-9">
+              <div className="flex w-full items-center justify-between px-5">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">
                     329<span className="text-xs font-normal">mi</span>
@@ -171,7 +171,7 @@ export default function ModelX({
               <div className="flex flex-col items-center justify-between gap-y-2">
                 <Button>Invest Now</Button>
                 <p className="text-xs text-muted-foreground">
-                  Specs displayed are Model X All-Wheel Drive
+                  Specs displayed are Model X All-Wheel Drive values.
                 </p>
               </div>
             </div>
