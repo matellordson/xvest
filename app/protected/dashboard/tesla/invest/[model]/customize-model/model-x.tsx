@@ -144,7 +144,7 @@ export default function ModelX({
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
           <div className="text-shadow h-[60%] w-full pt-5 text-center">
-            <p className="pb-5 text-6xl">Model X</p>
+            <p className="pb-5 text-6xl font-semibold">Model X</p>
           </div>
           <div
             className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/30"
@@ -183,13 +183,71 @@ export default function ModelX({
                   </SheetTrigger>
                   <SheetContent>
                     <SheetHeader>
-                      <SheetTitle>Are you absolutely sure?</SheetTitle>
-                      <SheetDescription>
-                        This action cannot be undone. This will permanently
-                        delete your account and remove your data from our
-                        servers.
-                      </SheetDescription>
+                      <SheetTitle>Model X</SheetTitle>
+                      <SheetDescription></SheetDescription>
                     </SheetHeader>
+                    <div>
+                      <p className="pb-1 text-center font-semibold tracking-wide">
+                        Investment Plan
+                      </p>
+                      <div className="space-y-2">
+                        <button
+                          onClick={() => setPlan(plan1)}
+                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan1 ? "border-white" : "border"}`}
+                        >
+                          <p>
+                            6<span className="text-sm">/mo</span>
+                          </p>
+                          <p className="font-semibold tracking-wide">
+                            ${plan1 + customPrice}
+                          </p>
+                        </button>
+                        <button
+                          onClick={() => setPlan(plan2)}
+                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan2 ? "border-white" : "border"}`}
+                        >
+                          <p>
+                            12<span className="text-sm">/mo</span>
+                          </p>
+                          <p className="font-semibold tracking-wide">
+                            ${plan2 + customPrice}
+                          </p>
+                        </button>
+                        <button
+                          onClick={() => setPlan(plan3)}
+                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan3 ? "border-white" : "border"}`}
+                        >
+                          <p>
+                            24<span className="text-sm">/mo</span>
+                          </p>
+                          <p className="font-semibold tracking-wide">
+                            ${plan3 + customPrice}
+                          </p>
+                        </button>
+                        <button
+                          onClick={() => setPlan(plan4)}
+                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan4 ? "border-white" : "border"}`}
+                        >
+                          <p>
+                            36<span className="text-sm">/mo</span>
+                          </p>
+                          <p className="font-semibold tracking-wide">
+                            ${plan4 + customPrice}
+                          </p>
+                        </button>
+                        <button
+                          onClick={() => setPlan(plan5)}
+                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan5 ? "border-white" : "border"}`}
+                        >
+                          <p>
+                            48<span className="text-sm">/mo</span>
+                          </p>
+                          <p className="font-semibold tracking-wide">
+                            ${plan5 + customPrice}
+                          </p>
+                        </button>
+                      </div>
+                    </div>
                   </SheetContent>
                 </Sheet>
                 <p className="text-xs text-muted-foreground">
