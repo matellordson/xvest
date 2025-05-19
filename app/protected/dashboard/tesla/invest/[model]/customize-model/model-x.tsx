@@ -132,10 +132,12 @@ export default function ModelX({
           width={2000}
           height={2000}
           priority
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-center"
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
-          <div className="h-[60%] w-full bg-transparent"></div>
+          <div className="text-shadow h-[60%] w-full bg-transparent pt-5 text-center">
+            <p className="pb-5 text-6xl">Model X</p>
+          </div>
           <div
             className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/30"
             style={{
@@ -146,8 +148,7 @@ export default function ModelX({
             }}
           >
             <div className="flex w-full flex-col items-center justify-center gap-y-9">
-              <p className="pb-5 text-6xl">Model X</p>
-              <div className="flex w-full items-center justify-between px-3">
+              <div className="flex w-full items-start justify-between px-5">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">
                     329<span className="text-xs font-normal">mi</span>
@@ -168,7 +169,7 @@ export default function ModelX({
                 </div>
               </div>
               <div className="flex flex-col items-center justify-between gap-y-2">
-                <Button>Invest Now</Button>
+                <Button className="font-bold">Invest Now</Button>
                 <p className="text-xs text-muted-foreground">
                   Specs displayed are Model X All-Wheel Drive
                 </p>
