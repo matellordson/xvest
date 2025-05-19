@@ -9,10 +9,12 @@ import {
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Star } from "lucide-react";
 
 interface propsType {
   model: string;
@@ -181,71 +183,453 @@ export default function ModelX({
                   <SheetTrigger asChild>
                     <Button>Invest Now</Button>
                   </SheetTrigger>
-                  <SheetContent>
+                  <SheetContent className="overflow-y-hidden">
                     <SheetHeader>
                       <SheetTitle>Model X</SheetTitle>
                       <SheetDescription></SheetDescription>
                     </SheetHeader>
-                    <div>
-                      <p className="pb-1 text-center font-semibold tracking-wide">
-                        Investment Plan
-                      </p>
-                      <div className="space-y-2">
-                        <button
-                          onClick={() => setPlan(plan1)}
-                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan1 ? "border-white" : "border"}`}
-                        >
-                          <p>
-                            6<span className="text-sm">/mo</span>
-                          </p>
-                          <p className="font-semibold tracking-wide">
-                            ${plan1 + customPrice}
-                          </p>
-                        </button>
-                        <button
-                          onClick={() => setPlan(plan2)}
-                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan2 ? "border-white" : "border"}`}
-                        >
-                          <p>
-                            12<span className="text-sm">/mo</span>
-                          </p>
-                          <p className="font-semibold tracking-wide">
-                            ${plan2 + customPrice}
-                          </p>
-                        </button>
-                        <button
-                          onClick={() => setPlan(plan3)}
-                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan3 ? "border-white" : "border"}`}
-                        >
-                          <p>
-                            24<span className="text-sm">/mo</span>
-                          </p>
-                          <p className="font-semibold tracking-wide">
-                            ${plan3 + customPrice}
-                          </p>
-                        </button>
-                        <button
-                          onClick={() => setPlan(plan4)}
-                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan4 ? "border-white" : "border"}`}
-                        >
-                          <p>
-                            36<span className="text-sm">/mo</span>
-                          </p>
-                          <p className="font-semibold tracking-wide">
-                            ${plan4 + customPrice}
-                          </p>
-                        </button>
-                        <button
-                          onClick={() => setPlan(plan5)}
-                          className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan5 ? "border-white" : "border"}`}
-                        >
-                          <p>
-                            48<span className="text-sm">/mo</span>
-                          </p>
-                          <p className="font-semibold tracking-wide">
-                            ${plan5 + customPrice}
-                          </p>
-                        </button>
+                    {/* model details */}
+                    <div className="h-[80vh] space-y-8 overflow-y-scroll pb-3">
+                      {/* investment plan */}
+                      <div>
+                        <div className="space-y-2">
+                          <button
+                            onClick={() => setPlan(plan1)}
+                            className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan1 ? "border-primary" : "border"}`}
+                          >
+                            <p>
+                              6<span className="text-sm">/mo</span>
+                            </p>
+                            <p className="font-semibold tracking-wide">
+                              ${plan1 + customPrice}
+                            </p>
+                          </button>
+                          <button
+                            onClick={() => setPlan(plan2)}
+                            className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan2 ? "border-primary" : "border"}`}
+                          >
+                            <p>
+                              12<span className="text-sm">/mo</span>
+                            </p>
+                            <p className="font-semibold tracking-wide">
+                              ${plan2 + customPrice}
+                            </p>
+                          </button>
+                          <button
+                            onClick={() => setPlan(plan3)}
+                            className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan3 ? "border-primary" : "border"}`}
+                          >
+                            <p>
+                              24<span className="text-sm">/mo</span>
+                            </p>
+                            <p className="font-semibold tracking-wide">
+                              ${plan3 + customPrice}
+                            </p>
+                          </button>
+                          <button
+                            onClick={() => setPlan(plan4)}
+                            className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan4 ? "border-primary" : "border"}`}
+                          >
+                            <p>
+                              36<span className="text-sm">/mo</span>
+                            </p>
+                            <p className="font-semibold tracking-wide">
+                              ${plan4 + customPrice}
+                            </p>
+                          </button>
+                          <button
+                            onClick={() => setPlan(plan5)}
+                            className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan5 ? "border-primary" : "border"}`}
+                          >
+                            <p>
+                              48<span className="text-sm">/mo</span>
+                            </p>
+                            <p className="font-semibold tracking-wide">
+                              ${plan5 + customPrice}
+                            </p>
+                          </button>
+                        </div>
+                      </div>
+                      {/* color */}
+                      <div>
+                        <p className="pb-2 text-center font-semibold capitalize">
+                          {color}
+                        </p>
+                        <div className="flex justify-between space-x-4">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("stealth grey");
+                              if (colorChangePrice == true) {
+                                setColorChangePrice(false);
+                                setPriceFromColor(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "stealth grey" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/grey.png"}
+                              alt="grey"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("pearl white multi-coat");
+                              if (colorChangePrice == false) {
+                                setColorChangePrice(true);
+                                setPriceFromColor(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "pearl white multi-coat" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/pearl.png"}
+                              alt="pearl"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("deep blue metallic");
+                              if (colorChangePrice == false) {
+                                setColorChangePrice(true);
+                                setPriceFromColor(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "deep blue metallic" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/blue.png"}
+                              alt="blue"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("solid black");
+                              if (colorChangePrice == false) {
+                                setColorChangePrice(true);
+                                setPriceFromColor(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "solid black" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/black.png"}
+                              alt="black"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("ultra red");
+                              if (colorChangePrice == false) {
+                                setColorChangePrice(true);
+                                setPriceFromColor(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "ultra red" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/red.png"}
+                              alt="red"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setColor("luna silver");
+                              if (colorChangePrice == false) {
+                                setColorChangePrice(true);
+                                setPriceFromColor(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${color == "luna silver" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-colors/silver.png"}
+                              alt="silver"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      {/* wheel */}
+                      <div className="">
+                        <p className="pb-2 text-center font-semibold capitalize">
+                          {wheels}
+                        </p>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setWheels('20" cyberstream wheels');
+                              if (wheelChangePrice == true) {
+                                setWheelChangePrice(false);
+                                setPriceFromWheel(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${wheels == '20" cyberstream wheels' ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-wheels/model-x/20.png"}
+                              alt="wheel"
+                              height={40}
+                              width={40}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setWheels('22" turbine wheels');
+                              if (wheelChangePrice == false) {
+                                setWheelChangePrice(true);
+                                setPriceFromWheel(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${wheels == '22" turbine wheels' ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-wheels/model-x/22.png"}
+                              alt="wheel"
+                              height={40}
+                              width={40}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      {/* interior */}
+                      <div className="">
+                        <p className="text-center text-sm text-muted-foreground">
+                          Interior Color
+                        </p>
+                        <p className="pb-2 text-center font-semibold capitalize">
+                          {interior}
+                        </p>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setInterior("all black");
+                              if (interiorChangePrice == true) {
+                                setInteriorChangePrice(false);
+                                setPriceFromInterior(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${interior == "all black" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-interior/model-x/black.png"}
+                              alt="black"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setInterior("black and white");
+                              if (interiorChangePrice == false) {
+                                setInteriorChangePrice(true);
+                                setPriceFromInterior(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${interior == "black and white" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-interior/model-x/bandw.png"}
+                              alt="black and white"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setInterior("cream");
+                              if (interiorChangePrice == false) {
+                                setInteriorChangePrice(true);
+                                setPriceFromInterior(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${interior == "cream" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-interior/model-x/bandw.png"}
+                              alt="cream"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      {/* seat */}
+                      <div className="">
+                        <p className="pb-2 text-center font-semibold capitalize">
+                          {seat}
+                        </p>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSeat("five seat interior");
+                              if (seatChangePrice == true) {
+                                setSeatChangePrice(false);
+                                setPriceFromSeat(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className={`h-10 w-10 rounded-full border text-lg font-semibold text-muted-foreground ${seat == "five seat interior" ? "border-primary text-primary" : ""}`}
+                          >
+                            5
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSeat("six seat interior");
+                              if (seatChangePrice == false) {
+                                setSeatChangePrice(true);
+                                setPriceFromSeat(100);
+                              }
+                            }}
+                            className={`h-10 w-10 rounded-full border text-lg font-semibold text-muted-foreground ${seat == "six seat interior" ? "border-primary text-primary" : ""}`}
+                          >
+                            6
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSeat("seven seat interior");
+                              if (seatChangePrice == false) {
+                                setSeatChangePrice(true);
+                                setPriceFromSeat(100);
+                              }
+                            }}
+                            className={`h-10 w-10 rounded-full border text-lg font-semibold text-muted-foreground ${seat == "seven seat interior" ? "border-primary text-primary" : ""}`}
+                          >
+                            7
+                          </button>
+                        </div>
+                      </div>
+                      {/* steering */}
+                      <div className="">
+                        <p className="pb-2 text-center font-semibold capitalize">
+                          {steering}
+                        </p>
+                        <div className="flex justify-center space-x-4">
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSteering("steering wheel");
+                              if (steeringChangePrice == true) {
+                                setSteeringChangePrice(false);
+                                setPriceFromSteering(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${steering == "steering wheel" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-steering/model-x/steering.png"}
+                              alt="steering"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSteering("yoke steering");
+                              if (steeringChangePrice == false) {
+                                setSteeringChangePrice(true);
+                                setPriceFromSteering(100);
+                              }
+                            }}
+                            className={`flex items-center justify-center rounded-full p-1 ${steering == "yoke steering" ? "border border-primary" : ""}`}
+                          >
+                            <Image
+                              src={"/model-steering/model-x/york.png"}
+                              alt="steering"
+                              height={30}
+                              width={30}
+                            />
+                          </button>
+                        </div>
+                      </div>
+                      {/* self drive */}
+                      <div className="">
+                        <p className="text-center font-semibold capitalize">
+                          full self-driving (supervised)
+                        </p>
+                        <p className="pb-2 text-center text-xs text-muted-foreground">
+                          Your car will be able to drive itself almost anywhere
+                          with minimal driver intervention
+                        </p>
+                        {selfDrive == "no" ? (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSelfDrive("yes");
+                              if (selfDriveChangePrice == false) {
+                                setSelfDriveChangePrice(true);
+                                setPriceFromSelfDrive(8000);
+                              }
+                            }}
+                            className="bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90"
+                          >
+                            <p className="capitalize">full self-driving</p>
+                            <p className="font-semibold">$8,000</p>
+                          </button>
+                        ) : (
+                          <button
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setSelfDrive("no");
+                              if (selfDriveChangePrice == true) {
+                                setSelfDriveChangePrice(false);
+                                setPriceFromSelfDrive(0);
+                                setPlanPrice(plan1);
+                              }
+                            }}
+                            className="bg-skin flex h-10 w-full items-center justify-between rounded-lg border border-primary px-3 hover:opacity-90"
+                          >
+                            <p className="capitalize">full self-driving</p>
+                            <p className="font-semibold">$8,000</p>
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    {/* checkout */}
+                    <div className="mt-1 flex h-[7vh] items-center justify-between border-t border-dashed pt-4">
+                      <div className="">
+                        <p className="text-xl font-semibold tracking-wide">
+                          ${price + customPrice}
+                        </p>
+                        <p className="text-sm tracking-wide">
+                          ${plan + customPrice}
+                          <span className="text-xs">/mo</span>
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between gap-2">
+                        <Button onClick={order}>Order Now</Button>
+                        {/* <Button variant={"outline"}>
+                          <Star />
+                        </Button> */}
                       </div>
                     </div>
                   </SheetContent>
