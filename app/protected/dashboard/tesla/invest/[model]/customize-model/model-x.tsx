@@ -198,7 +198,7 @@ export default function ModelX({
                             </SheetDescription>
                           </div>
                           <div className="flex items-center justify-between gap-2">
-                            <Button onClick={order}>Order Now</Button>
+                            <Button onClick={order}>Invest Now</Button>
                           </div>
                         </div>
                       </SheetHeader>
