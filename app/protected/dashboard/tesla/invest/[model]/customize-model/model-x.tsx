@@ -149,7 +149,7 @@ export default function ModelX({
             <p className="pb-5 text-6xl font-semibold">Model X</p>
           </div>
           <div
-            className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/30"
+            className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/40"
             style={{
               background:
                 "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 3%, rgba(0,0,0,0.1) 5%, rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.3) 20%)",
@@ -184,14 +184,33 @@ export default function ModelX({
                     <Button>Invest Now</Button>
                   </SheetTrigger>
                   <SheetContent className="overflow-y-hidden">
-                    <SheetHeader>
-                      <SheetTitle>Model X</SheetTitle>
-                      <SheetDescription></SheetDescription>
+                    <SheetHeader className="py-3">
+                      {/* checkout */}
+                      <div className="flex h-[4rem] items-center justify-between border-b border-dashed">
+                        <div className="">
+                          <SheetTitle className="text-2xl font-semibold tracking-wide">
+                            ${price + customPrice}
+                          </SheetTitle>
+                          <SheetDescription className="text-sm tracking-wide">
+                            ${plan + customPrice}
+                            <span className="text-xs">/mo</span>
+                          </SheetDescription>
+                        </div>
+                        <div className="flex items-center justify-between gap-2">
+                          <Button onClick={order}>Order Now</Button>
+                          {/* <Button variant={"outline"}>
+                          <Star />
+                        </Button> */}
+                        </div>
+                      </div>
                     </SheetHeader>
                     {/* model details */}
-                    <div className="h-[80vh] space-y-8 overflow-y-scroll pb-3">
+                    <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-20">
                       {/* investment plan */}
                       <div>
+                        <p className="mx-auto mb-2 w-fit rounded-lg bg-muted px-3 py-1 text-center">
+                          Monthly Plan
+                        </p>
                         <div className="space-y-2">
                           <button
                             onClick={() => setPlan(plan1)}
@@ -250,121 +269,126 @@ export default function ModelX({
                           </button>
                         </div>
                       </div>
+                      <p className="mx-auto w-fit rounded-lg bg-muted px-3 py-1 text-center">
+                        Model Specs
+                      </p>
                       {/* color */}
                       <div>
-                        <p className="pb-2 text-center font-semibold capitalize">
-                          {color}
-                        </p>
-                        <div className="flex justify-between space-x-4">
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("stealth grey");
-                              if (colorChangePrice == true) {
-                                setColorChangePrice(false);
-                                setPriceFromColor(0);
-                                setPlanPrice(plan1);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "stealth grey" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/grey.png"}
-                              alt="grey"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("pearl white multi-coat");
-                              if (colorChangePrice == false) {
-                                setColorChangePrice(true);
-                                setPriceFromColor(100);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "pearl white multi-coat" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/pearl.png"}
-                              alt="pearl"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("deep blue metallic");
-                              if (colorChangePrice == false) {
-                                setColorChangePrice(true);
-                                setPriceFromColor(100);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "deep blue metallic" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/blue.png"}
-                              alt="blue"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("solid black");
-                              if (colorChangePrice == false) {
-                                setColorChangePrice(true);
-                                setPriceFromColor(100);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "solid black" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/black.png"}
-                              alt="black"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("ultra red");
-                              if (colorChangePrice == false) {
-                                setColorChangePrice(true);
-                                setPriceFromColor(100);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "ultra red" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/red.png"}
-                              alt="red"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
-                          <button
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setColor("luna silver");
-                              if (colorChangePrice == false) {
-                                setColorChangePrice(true);
-                                setPriceFromColor(100);
-                              }
-                            }}
-                            className={`flex items-center justify-center rounded-full p-1 ${color == "luna silver" ? "border border-primary" : ""}`}
-                          >
-                            <Image
-                              src={"/model-colors/silver.png"}
-                              alt="silver"
-                              height={30}
-                              width={30}
-                            />
-                          </button>
+                        <div className="flex flex-col justify-between space-x-2">
+                          <p className="pb-2 text-center font-semibold capitalize">
+                            {color}
+                          </p>
+                          <div className="flex justify-between space-x-2">
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("stealth grey");
+                                if (colorChangePrice == true) {
+                                  setColorChangePrice(false);
+                                  setPriceFromColor(0);
+                                  setPlanPrice(plan1);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "stealth grey" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/grey.png"}
+                                alt="grey"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("pearl white multi-coat");
+                                if (colorChangePrice == false) {
+                                  setColorChangePrice(true);
+                                  setPriceFromColor(100);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "pearl white multi-coat" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/pearl.png"}
+                                alt="pearl"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("deep blue metallic");
+                                if (colorChangePrice == false) {
+                                  setColorChangePrice(true);
+                                  setPriceFromColor(100);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "deep blue metallic" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/blue.png"}
+                                alt="blue"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("solid black");
+                                if (colorChangePrice == false) {
+                                  setColorChangePrice(true);
+                                  setPriceFromColor(100);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "solid black" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/black.png"}
+                                alt="black"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("ultra red");
+                                if (colorChangePrice == false) {
+                                  setColorChangePrice(true);
+                                  setPriceFromColor(100);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "ultra red" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/red.png"}
+                                alt="red"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setColor("luna silver");
+                                if (colorChangePrice == false) {
+                                  setColorChangePrice(true);
+                                  setPriceFromColor(100);
+                                }
+                              }}
+                              className={`flex items-center justify-center rounded-full p-1 ${color == "luna silver" ? "border border-primary" : ""}`}
+                            >
+                              <Image
+                                src={"/model-colors/silver.png"}
+                                alt="silver"
+                                height={40}
+                                width={40}
+                              />
+                            </button>
+                          </div>
                         </div>
                       </div>
                       {/* wheel */}
@@ -436,8 +460,8 @@ export default function ModelX({
                             <Image
                               src={"/model-interior/model-x/black.png"}
                               alt="black"
-                              height={30}
-                              width={30}
+                              height={40}
+                              width={40}
                             />
                           </button>
                           <button
@@ -454,8 +478,8 @@ export default function ModelX({
                             <Image
                               src={"/model-interior/model-x/bandw.png"}
                               alt="black and white"
-                              height={30}
-                              width={30}
+                              height={40}
+                              width={40}
                             />
                           </button>
                           <button
@@ -472,8 +496,8 @@ export default function ModelX({
                             <Image
                               src={"/model-interior/model-x/bandw.png"}
                               alt="cream"
-                              height={30}
-                              width={30}
+                              height={40}
+                              width={40}
                             />
                           </button>
                         </div>
@@ -547,8 +571,8 @@ export default function ModelX({
                             <Image
                               src={"/model-steering/model-x/steering.png"}
                               alt="steering"
-                              height={30}
-                              width={30}
+                              height={40}
+                              width={40}
                             />
                           </button>
                           <button
@@ -565,8 +589,8 @@ export default function ModelX({
                             <Image
                               src={"/model-steering/model-x/york.png"}
                               alt="steering"
-                              height={30}
-                              width={30}
+                              height={40}
+                              width={40}
                             />
                           </button>
                         </div>
@@ -613,24 +637,13 @@ export default function ModelX({
                           </button>
                         )}
                       </div>
-                    </div>
-                    {/* checkout */}
-                    <div className="mt-1 flex h-[7vh] items-center justify-between border-t border-dashed pt-4">
-                      <div className="">
-                        <p className="text-xl font-semibold tracking-wide">
-                          ${price + customPrice}
-                        </p>
-                        <p className="text-sm tracking-wide">
-                          ${plan + customPrice}
-                          <span className="text-xs">/mo</span>
-                        </p>
-                      </div>
-                      <div className="flex items-center justify-between gap-2">
-                        <Button onClick={order}>Order Now</Button>
-                        {/* <Button variant={"outline"}>
-                          <Star />
-                        </Button> */}
-                      </div>
+                      <Button
+                        className="w-full"
+                        variant={"outline"}
+                        size={"icon"}
+                      >
+                        Add to watchlist
+                      </Button>
                     </div>
                   </SheetContent>
                 </Sheet>
