@@ -14,8 +14,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Star } from "lucide-react";
+import { ChevronLeft, MoveLeft, Star } from "lucide-react";
 import Link from "next/link";
+import { SubmitButton } from "@/components/submit-button";
 
 interface propsType {
   model: string;
@@ -134,6 +135,14 @@ export default function ModelX({
     });
   }
 
+  const displayPrice = price + customPrice;
+  const displayPlan = plan + customPrice;
+  const displayPlan2 = plan2 + customPrice;
+  const displayPlan1 = plan1 + customPrice;
+  const displayPlan3 = plan3 + customPrice;
+  const displayPlan4 = plan4 + customPrice;
+  const displayPlan5 = plan5 + customPrice;
+
   return (
     <div className="">
       <div className="flex h-screen w-full items-center justify-center">
@@ -147,7 +156,14 @@ export default function ModelX({
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
           <div className="text-shadow h-[60%] w-full pt-5 text-center">
-            <p className="pb-5 text-6xl">Model X</p>
+            <Link
+              href={"/protected/dashboard/tesla"}
+              className="group ml-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md"
+            >
+              <ChevronLeft size={20} className="relative group-hover:right-1" />
+              <p className="text-sm">Dashboard</p>
+            </Link>
+            <p className="pb-5 text-6xl font-semibold">Model X</p>
           </div>
           <div
             className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/40"
@@ -191,15 +207,25 @@ export default function ModelX({
                         <div className="flex h-[4rem] items-center justify-between border-b border-dashed">
                           <div className="">
                             <SheetTitle className="text-2xl font-semibold tracking-wide">
-                              ${price + customPrice}
+                              $
+                              {displayPrice.toLocaleString("en-US", {
+                                maximumFractionDigits: 2,
+                              })}
                             </SheetTitle>
                             <SheetDescription className="text-sm tracking-wide">
-                              ${plan + customPrice}
+                              $
+                              {displayPlan.toLocaleString("en-US", {
+                                maximumFractionDigits: 2,
+                              })}
                               <span className="text-xs">/mo</span>
                             </SheetDescription>
                           </div>
                           <div className="flex items-center justify-between gap-2">
-                            <Button onClick={order}>Invest Now</Button>
+                            <form action="">
+                              <SubmitButton formAction={order}>
+                                Invest Now
+                              </SubmitButton>
+                            </form>
                           </div>
                         </div>
                       </SheetHeader>
@@ -218,9 +244,10 @@ export default function ModelX({
                               <p>
                                 6<span className="text-sm">/mo</span>
                               </p>
-                              <p className="font-semibold tracking-wide">
-                                ${plan1 + customPrice}
-                              </p>
+                              <p className="font-semibold tracking-wide"></p>$
+                              {displayPlan1.toLocaleString("en-US", {
+                                maximumFractionDigits: 2,
+                              })}
                             </button>
                             <button
                               onClick={() => setPlan(plan2)}
@@ -230,7 +257,10 @@ export default function ModelX({
                                 12<span className="text-sm">/mo</span>
                               </p>
                               <p className="font-semibold tracking-wide">
-                                ${plan2 + customPrice}
+                                $
+                                {displayPlan2.toLocaleString("en-US", {
+                                  maximumFractionDigits: 2,
+                                })}
                               </p>
                             </button>
                             <button
@@ -241,7 +271,10 @@ export default function ModelX({
                                 24<span className="text-sm">/mo</span>
                               </p>
                               <p className="font-semibold tracking-wide">
-                                ${plan3 + customPrice}
+                                $
+                                {displayPlan3.toLocaleString("en-US", {
+                                  maximumFractionDigits: 2,
+                                })}
                               </p>
                             </button>
                             <button
@@ -252,7 +285,10 @@ export default function ModelX({
                                 36<span className="text-sm">/mo</span>
                               </p>
                               <p className="font-semibold tracking-wide">
-                                ${plan4 + customPrice}
+                                $
+                                {displayPlan4.toLocaleString("en-US", {
+                                  maximumFractionDigits: 2,
+                                })}
                               </p>
                             </button>
                             <button
@@ -263,7 +299,10 @@ export default function ModelX({
                                 48<span className="text-sm">/mo</span>
                               </p>
                               <p className="font-semibold tracking-wide">
-                                ${plan5 + customPrice}
+                                $
+                                {displayPlan5.toLocaleString("en-US", {
+                                  maximumFractionDigits: 2,
+                                })}
                               </p>
                             </button>
                           </div>
@@ -636,14 +675,16 @@ export default function ModelX({
                             </button>
                           )}
                         </div>
-                        <Button
-                          onClick={favorite}
-                          className="w-full"
-                          variant={"outline"}
-                          size={"icon"}
-                        >
-                          Add to watchlist
-                        </Button>
+                        <form>
+                          <SubmitButton
+                            formAction={favorite}
+                            className="w-full"
+                            variant={"outline"}
+                            size={"icon"}
+                          >
+                            Add to watchlist
+                          </SubmitButton>
+                        </form>
                       </div>
                     </SheetContent>
                   </Sheet>

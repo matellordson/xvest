@@ -43,7 +43,7 @@ export default async function addOrder({
     self_drive: orderSelfDrive,
   });
 
-  redirect("/protected/dashboard");
+  redirect("/protected/dashboard/tesla");
 
   if (error) {
     console.log(error);
