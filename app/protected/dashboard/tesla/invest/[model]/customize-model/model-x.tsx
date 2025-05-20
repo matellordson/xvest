@@ -204,7 +204,7 @@ export default function ModelX({
                         </div>
                       </SheetHeader>
                       {/* model details */}
-                      <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-32">
+                      <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-36">
                         {/* investment plan */}
                         <div>
                           <p className="mx-auto mb-2 w-fit rounded-lg bg-muted px-3 py-1 text-center">
@@ -647,7 +647,7 @@ export default function ModelX({
                       </div>
                     </SheetContent>
                   </Sheet>
-                  <Button asChild variant={"secondary"}>
+                  <Button asChild variant={"secondary"} className="shadow-xl">
                     <a target="_blank" href="https://www.tesla.com/modelx">
                       Lean More
                     </a>
