@@ -15,6 +15,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Star } from "lucide-react";
+import Link from "next/link";
 
 interface propsType {
   model: string;
@@ -203,7 +204,7 @@ export default function ModelX({
                         </div>
                       </SheetHeader>
                       {/* model details */}
-                      <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-20">
+                      <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-32">
                         {/* investment plan */}
                         <div>
                           <p className="mx-auto mb-2 w-fit rounded-lg bg-muted px-3 py-1 text-center">
@@ -212,7 +213,7 @@ export default function ModelX({
                           <div className="space-y-2">
                             <button
                               onClick={() => setPlan(plan1)}
-                              className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan1 ? "border-primary" : "border"}`}
+                              className={`flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90 ${plan == plan1 ? "border-primary" : "border"}`}
                             >
                               <p>
                                 6<span className="text-sm">/mo</span>
@@ -223,7 +224,7 @@ export default function ModelX({
                             </button>
                             <button
                               onClick={() => setPlan(plan2)}
-                              className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan2 ? "border-primary" : "border"}`}
+                              className={`flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90 ${plan == plan2 ? "border-primary" : "border"}`}
                             >
                               <p>
                                 12<span className="text-sm">/mo</span>
@@ -234,7 +235,7 @@ export default function ModelX({
                             </button>
                             <button
                               onClick={() => setPlan(plan3)}
-                              className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan3 ? "border-primary" : "border"}`}
+                              className={`flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90 ${plan == plan3 ? "border-primary" : "border"}`}
                             >
                               <p>
                                 24<span className="text-sm">/mo</span>
@@ -245,7 +246,7 @@ export default function ModelX({
                             </button>
                             <button
                               onClick={() => setPlan(plan4)}
-                              className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan4 ? "border-primary" : "border"}`}
+                              className={`flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90 ${plan == plan4 ? "border-primary" : "border"}`}
                             >
                               <p>
                                 36<span className="text-sm">/mo</span>
@@ -256,7 +257,7 @@ export default function ModelX({
                             </button>
                             <button
                               onClick={() => setPlan(plan5)}
-                              className={`bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90 ${plan == plan5 ? "border-primary" : "border"}`}
+                              className={`flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90 ${plan == plan5 ? "border-primary" : "border"}`}
                             >
                               <p>
                                 48<span className="text-sm">/mo</span>
@@ -612,7 +613,7 @@ export default function ModelX({
                                   setPriceFromSelfDrive(8000);
                                 }
                               }}
-                              className="bg-skin flex h-10 w-full items-center justify-between rounded-lg border px-3 hover:opacity-90"
+                              className="flex h-10 w-full items-center justify-between rounded-lg border bg-skin px-3 hover:opacity-90"
                             >
                               <p className="capitalize">full self-driving</p>
                               <p className="font-semibold">$8,000</p>
@@ -628,7 +629,7 @@ export default function ModelX({
                                   setPlanPrice(plan1);
                                 }
                               }}
-                              className="bg-skin flex h-10 w-full items-center justify-between rounded-lg border border-primary px-3 hover:opacity-90"
+                              className="flex h-10 w-full items-center justify-between rounded-lg border border-primary bg-skin px-3 hover:opacity-90"
                             >
                               <p className="capitalize">full self-driving</p>
                               <p className="font-semibold">$8,000</p>
@@ -646,7 +647,11 @@ export default function ModelX({
                       </div>
                     </SheetContent>
                   </Sheet>
-                  <Button variant={"secondary"}>Learn More</Button>
+                  <Button asChild variant={"secondary"}>
+                    <a target="_blank" href="https://www.tesla.com/modelx">
+                      Lean More
+                    </a>
+                  </Button>
                 </div>
                 <p className="text-xs text-muted-foreground">
                   Specs displayed are Model X All-Wheel Drive values.
