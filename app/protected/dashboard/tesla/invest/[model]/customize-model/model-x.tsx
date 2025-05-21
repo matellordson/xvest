@@ -809,7 +809,7 @@ export default function ModelX({
             </div>
           </div>
           {/* model details */}
-          <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-10">
+          <div className="max-h-[80vh] min-h-[90vh] space-y-8 overflow-y-scroll pb-32">
             {/* investment plan */}
             <div>
               <p className="mx-auto mb-2 w-fit rounded-lg bg-muted px-3 py-1 text-center">
