@@ -160,10 +160,13 @@ export default function ModelX({
               href={"/protected/dashboard/tesla"}
               className="group ml-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md"
             >
-              <ChevronLeft size={20} className="relative group-hover:right-1" />
-              <p className="text-sm">Dashboard</p>
+              <ChevronLeft
+                size={20}
+                className="relative text-white group-hover:right-1"
+              />
+              <p className="text-sm text-white">Dashboard</p>
             </Link>
-            <p className="text-shadow pb-5 pt-7 text-6xl font-semibold">
+            <p className="text-shadow pb-5 pt-7 text-6xl font-semibold text-white">
               Model X
             </p>
           </div>
@@ -177,7 +180,7 @@ export default function ModelX({
             }}
           >
             <div className="flex h-full w-full flex-col items-center justify-start gap-y-9">
-              <div className="flex w-full items-center justify-between px-5">
+              <div className="flex w-full items-center justify-between px-5 text-white">
                 <div className="flex flex-col items-center">
                   <p className="font-semibold">
                     329<span className="text-xs font-normal">mi</span>
@@ -701,7 +704,7 @@ export default function ModelX({
                     </a>
                   </Button>
                 </div>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-white opacity-70">
                   Specs displayed are Model X All-Wheel Drive values.
                 </p>
               </div>

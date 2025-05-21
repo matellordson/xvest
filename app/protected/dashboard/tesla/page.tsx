@@ -54,7 +54,7 @@ export default function ExploreTesla() {
                     </div>
                     <div className="flex items-center justify-center gap-x-2">
                       {portal.count ? (
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-secondary font-semibold">
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-neutral-200 font-semibold text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
                           <p className="text-xs">{portal.count} </p>
                         </div>
                       ) : (
