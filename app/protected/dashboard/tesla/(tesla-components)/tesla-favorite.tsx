@@ -9,7 +9,8 @@ export default async function TeslaFavorite() {
   const supabase = await createClient();
   const { data: favorites } = await supabase
     .from("tesla favorite")
-    .select("model, price, id, plan");
+    .select("model, price, id, plan")
+    .order("created_at", { ascending: false });
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">

@@ -714,7 +714,7 @@ export default function ModelX({
         </div>
       </div>
       {/* desktop */}
-      <div className="hidden max-h-screen w-[100%] lg:flex">
+      <div className="fixed hidden max-h-screen w-[100%] lg:flex">
         {/* left */}
         <div className="w-[60%]">
           <Image

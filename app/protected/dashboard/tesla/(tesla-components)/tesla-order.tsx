@@ -8,7 +8,8 @@ export default async function TeslaOrder() {
   const supabase = await createClient();
   const { data: orders, count } = await supabase
     .from("tesla order")
-    .select("model, price, id, plan, paid");
+    .select("model, price, id, plan, paid")
+    .order("created_at", { ascending: false });
 
   return (
     <div>
