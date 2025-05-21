@@ -44,12 +44,12 @@ export default function ExploreTesla() {
   return (
     <div className="px-3">
       <Link
-        href={"/protected/dashboard/tesla"}
+        href={"/protected/dashboard"}
         className="group flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md hover:bg-muted"
       >
         <ChevronLeft size={20} className="relative group-hover:right-1" />
         <p className="text-sm">Dashboard</p>
-      </Link>{" "}
+      </Link>
       <div className="space-y-3">
         <p className="pt-5 text-3xl font-semibold">Tesla</p>
         <div className="divide-y rounded-lg border bg-skin px-3 py-1">

@@ -164,7 +164,7 @@ export default function ModelX({
                 size={20}
                 className="relative text-white group-hover:right-1"
               />
-              <p className="text-sm text-white">Dashboard</p>
+              <p className="text-sm text-white">Back</p>
             </Link>
             <p className="text-shadow pb-5 pt-7 text-6xl font-semibold text-white">
               Model X
