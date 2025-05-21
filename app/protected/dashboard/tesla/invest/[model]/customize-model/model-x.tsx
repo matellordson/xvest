@@ -224,8 +224,11 @@ export default function ModelX({
                           </div>
                           <div className="flex items-center justify-between gap-2">
                             <form action="">
-                              <SubmitButton formAction={order}>
-                                Invest Now
+                              <SubmitButton
+                                formAction={order}
+                                className="tracking-wider"
+                              >
+                                Invest
                               </SubmitButton>
                             </form>
                           </div>
