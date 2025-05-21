@@ -1,4 +1,11 @@
-import { Car, ChevronRight, Shapes, ShoppingCart, Star } from "lucide-react";
+import {
+  Car,
+  ChevronLeft,
+  ChevronRight,
+  Shapes,
+  ShoppingCart,
+  Star,
+} from "lucide-react";
 import Link from "next/link";
 import {
   Drawer,
@@ -36,9 +43,15 @@ export default function ExploreTesla() {
 
   return (
     <div className="px-3">
-      <Link href={"/protected/dashboard"}>dashboard</Link>
+      <Link
+        href={"/protected/dashboard/tesla"}
+        className="group flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md hover:bg-muted"
+      >
+        <ChevronLeft size={20} className="relative group-hover:right-1" />
+        <p className="text-sm">Dashboard</p>
+      </Link>{" "}
       <div className="space-y-3">
-        <p className="text-3xl font-semibold">Tesla</p>
+        <p className="pt-5 text-3xl font-semibold">Tesla</p>
         <div className="divide-y rounded-lg border bg-skin px-3 py-1">
           {portals.map((portal) => (
             <div
