@@ -17,7 +17,7 @@ export default async function TeslaOrder() {
           <Link href={"#"} key={order.id}>
             <div
               key={order.id}
-              className="bg-skin group flex items-center justify-between rounded-lg border px-3 py-2 transition ease-in-out hover:opacity-90"
+              className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out hover:opacity-90"
             >
               {/* left */}
               <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
@@ -72,7 +72,13 @@ export default async function TeslaOrder() {
               </div>
               <div className="flex w-fit items-center justify-between gap-x-2">
                 <div className="">
-                  <span className="text-sm tracking-wide">
+                  <p className="font-semibold tracking-wide">
+                    $
+                    {order.price.toLocaleString("en-US", {
+                      maximumFractionDigits: 2,
+                    })}
+                  </p>
+                  <span className="text-sm tracking-wide text-muted-foreground">
                     {order.model == "cyber-truck" ? (
                       <p>Cyber Truck</p>
                     ) : order.model == "model-3" ? (
@@ -87,14 +93,22 @@ export default async function TeslaOrder() {
                       ""
                     )}
                   </span>
-                  <p className="font-semibold tracking-wide">${order.price}</p>
                 </div>
               </div>
               {/* right */}
-              <div className="flex flex-col items-center justify-between gap-y-1">
-                <p className="font-semibold tracking-wide">${order.paid}</p>
-                <p className="text-xs tracking-wide text-muted-foreground">
-                  <span className="font-semibold">${order.plan}</span>/month
+              <div className="flex flex-col items-end justify-between gap-y-1">
+                <p className="font-semibold tracking-wide">
+                  $
+                  {order.paid.toLocaleString("en-US", {
+                    maximumFractionDigits: 2,
+                  })}
+                </p>
+                <p className="text-sm tracking-wide text-muted-foreground">
+                  $
+                  {order.plan.toLocaleString("en-US", {
+                    maximumFractionDigits: 2,
+                  })}
+                  <span className="text-xs">/mo</span>
                 </p>
               </div>
             </div>

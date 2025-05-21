@@ -39,7 +39,7 @@ export default function ExploreTesla() {
       <Link href={"/protected/dashboard"}>dashboard</Link>
       <div className="space-y-3">
         <p className="text-3xl font-semibold">Tesla</p>
-        <div className="bg-skin divide-y rounded-lg border px-3 py-1">
+        <div className="divide-y rounded-lg border bg-skin px-3 py-1">
           {portals.map((portal) => (
             <div
               key={portal.label}
