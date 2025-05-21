@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -41,6 +42,7 @@ export default function RootLayout({
         >
           <div className="">{children}</div>
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
