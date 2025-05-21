@@ -14,11 +14,8 @@ export default async function TeslaOrder() {
     <div>
       <div className="mx-3 flex flex-col space-y-2">
         {orders?.map((order) => (
-          <Link href={"#"} key={order.id}>
-            <div
-              key={order.id}
-              className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out hover:opacity-90"
-            >
+          <Link href={"#"} key={order.id} className="group">
+            <div className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out hover:opacity-90 group-hover:bg-secondary">
               {/* left */}
               <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
                 {order.model == "cyber-truck" ? (
