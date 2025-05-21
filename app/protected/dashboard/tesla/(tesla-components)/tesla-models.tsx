@@ -11,8 +11,11 @@ export default async function TeslaModels() {
     .from("tesla")
     .select("model, price, slug, price, type, plan1");
 
-  http: return (
+  return (
     <div className="mx-3 flex flex-col gap-y-2">
+      <div className="flex items-center justify-between">
+        <p className="text-xl font-semibold tracking-tight">Models</p>
+      </div>
       {teslaModel?.map((data) => (
         <Link
           href={`/protected/dashboard/tesla/invest/${data.slug}`}

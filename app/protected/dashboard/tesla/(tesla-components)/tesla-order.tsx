@@ -14,6 +14,12 @@ export default async function TeslaOrder() {
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
+        <div className="flex items-center justify-between">
+          <p className="text-xl font-semibold tracking-tight">Investments</p>
+          <button className="text-sm tracking-wide text-muted-foreground transition hover:text-primary">
+            Edit
+          </button>
+        </div>
         {orders?.map((order) => (
           <Link href={"#"} key={order.id} className="group">
             <div className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out hover:opacity-90 group-hover:bg-secondary">

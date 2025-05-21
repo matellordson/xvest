@@ -14,6 +14,12 @@ export default async function TeslaFavorite() {
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
+        <div className="flex items-center justify-between">
+          <p className="text-xl font-semibold tracking-tight">Watchlist</p>
+          <button className="text-sm tracking-wide text-muted-foreground transition hover:text-primary">
+            Edit
+          </button>
+        </div>
         {favorites?.map((favorite) => (
           <Link href={"#"} key={favorite.id} className="group">
             <div className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out group-hover:bg-secondary">
