@@ -155,7 +155,7 @@ export default function ModelX({
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
-          <div className="text-shadow h-[60%] w-full pt-5 text-center">
+          <div className="text-shadow h-[60%] w-full pt-2 text-center">
             <Link
               href={"/protected/dashboard/tesla"}
               className="group ml-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md"
@@ -163,7 +163,9 @@ export default function ModelX({
               <ChevronLeft size={20} className="relative group-hover:right-1" />
               <p className="text-sm">Dashboard</p>
             </Link>
-            <p className="pb-5 text-6xl font-semibold">Model X</p>
+            <p className="text-shadow pb-5 pt-7 text-6xl font-semibold">
+              Model X
+            </p>
           </div>
           <div
             className="top-[23rem] flex h-[40%] w-full items-center justify-between bg-black/40"
