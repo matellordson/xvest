@@ -9,13 +9,14 @@ export default async function TeslaModels() {
   const supabase = createClient();
   const { data: teslaModel } = await supabase
     .from("tesla")
-    .select("model, price, slug, price, type");
+    .select("model, price, slug, price, type, plan1");
+
   return (
     <div className="mx-3 flex flex-col gap-y-2">
       {teslaModel?.map((data) => (
         <div
           key={data.model}
-          className="bg-skin flex items-center justify-between rounded-lg border px-3 py-2"
+          className="flex items-center justify-between rounded-lg border bg-skin px-3 py-2"
         >
           {/* left */}
           <div className="flex w-fit items-center justify-between gap-x-2">
@@ -79,16 +80,18 @@ export default async function TeslaModels() {
           </div>
           {/* right */}
           <div className="flex flex-col items-center justify-between gap-y-1">
-            <Button
-              asChild
-              variant={"outline"}
-              size={"sm"}
-              className="relative"
-            >
-              <Link href={`tesla/invest/${data.slug}`}>Invest Now</Link>
-            </Button>
-            <p className="text-xs text-muted-foreground">
-              Sarting <span className="font-semibold">${data.price}</span>
+            <p className="font-semibold tracking-wide">
+              $
+              {data.price.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+              })}
+            </p>
+            <p className="text-sm tracking-wide text-muted-foreground">
+              $
+              {data.plan1.toLocaleString("en-US", {
+                maximumFractionDigits: 2,
+              })}
+              <span className="text-xs">/mo</span>
             </p>
           </div>
         </div>

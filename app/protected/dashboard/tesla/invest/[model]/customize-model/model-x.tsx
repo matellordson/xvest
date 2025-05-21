@@ -226,7 +226,7 @@ export default function ModelX({
                             <form action="">
                               <SubmitButton
                                 formAction={order}
-                                className="tracking-wider"
+                                className="tracking-wide"
                               >
                                 Invest
                               </SubmitButton>
@@ -249,10 +249,12 @@ export default function ModelX({
                               <p>
                                 6<span className="text-sm">/mo</span>
                               </p>
-                              <p className="font-semibold tracking-wide"></p>$
-                              {displayPlan1.toLocaleString("en-US", {
-                                maximumFractionDigits: 2,
-                              })}
+                              <p className="font-semibold tracking-wide">
+                                $
+                                {displayPlan1.toLocaleString("en-US", {
+                                  maximumFractionDigits: 2,
+                                })}
+                              </p>
                             </button>
                             <button
                               onClick={() => setPlan(plan2)}
