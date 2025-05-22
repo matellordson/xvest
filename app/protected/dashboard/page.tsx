@@ -20,7 +20,7 @@ export default async function dashbaordPage() {
         <AdminPage />
       ) : (
         <Link
-          href={"/protected/dashboard/portforlio"}
+          href={"/protected/dashboard/portfolio"}
           className="underline underline-offset-2"
         >
           Tesla
