@@ -32,7 +32,7 @@ export default async function addOrder({
 }: orderType) {
   const supabase = await createClient();
 
-  const { error } = await supabase.from("tesla order").insert({
+  const { error } = await supabase.from("tesla_order").insert({
     user: currentUser,
     model: orderModel,
     price: orderPrice,

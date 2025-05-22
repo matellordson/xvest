@@ -30,7 +30,7 @@ export default async function addFavorite({
 }: favoriteType) {
   const supabase = await createClient();
 
-  const { error } = await supabase.from("tesla favorite").insert({
+  const { error } = await supabase.from("tesla_favorite").insert({
     user: currentUser,
     model: favoriteModel,
     price: favoritePrice,

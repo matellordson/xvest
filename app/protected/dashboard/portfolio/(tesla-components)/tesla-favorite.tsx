@@ -8,7 +8,7 @@ export const revalidate = 0;
 export default async function TeslaFavorite() {
   const supabase = await createClient();
   const { data: favorites, count } = await supabase
-    .from("tesla favorite")
+    .from("tesla_favorite")
     .select("model, price, id, plan", { count: "exact" })
     .order("created_at", { ascending: false });
   return (
