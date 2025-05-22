@@ -8,7 +8,7 @@ async function getData(): Promise<Order[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("tesla_order")
-    .select("model, plan, price,  paid, balance, user_email");
+    .select("model, plan, price,  paid, user_email, id");
   return data as Order[];
 }
 
@@ -17,6 +17,7 @@ export default async function AdminPage() {
 
   return (
     <div className="container mx-auto py-10">
+      <p className="mb-5 text-2xl font-semibold">Admin Panel</p>
       <DataTable columns={columns} data={data} />
     </div>
   );
