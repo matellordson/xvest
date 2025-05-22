@@ -22,7 +22,7 @@ export default async function InvestInModel({
 
   const { data: plans } = await supabase
     .from("tesla")
-    .select("plan1, plan2, plan3, plan4, plan5, email")
+    .select("plan1, plan2, plan3, plan4, plan5")
     .eq("slug", model);
 
   try {
