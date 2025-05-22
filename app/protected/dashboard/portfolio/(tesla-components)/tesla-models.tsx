@@ -18,7 +18,7 @@ export default async function TeslaModels() {
       </div>
       {teslaModel?.map((data) => (
         <Link
-          href={`/protected/dashboard/tesla/invest/${data.slug}`}
+          href={`/protected/dashboard/portfolio/invest/${data.slug}`}
           key={data.model}
           className="group"
         >

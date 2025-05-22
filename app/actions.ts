@@ -34,7 +34,7 @@ export const signUpAction = async (formData: FormData) => {
     return encodedRedirect(
       "success",
       "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
+      "Thanks for signing up! Please check your inbox or spam for a verification link.",
     );
   }
 };
@@ -53,7 +53,7 @@ export const signInAction = async (formData: FormData) => {
     return encodedRedirect("error", "/sign-in", error.message);
   }
 
-  return redirect("/protected/fK3xB9qT7LmZw2P8RcYaN1HdVsJuE4/on-boarding");
+  return redirect("/protected/dashboard");
 };
 
 export const forgotPasswordAction = async (formData: FormData) => {
@@ -86,7 +86,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   return encodedRedirect(
     "success",
     "/forgot-password",
-    "Check your email for a link to reset your password.",
+    "Check your ibox or spam for a link to reset your password.",
   );
 };
 

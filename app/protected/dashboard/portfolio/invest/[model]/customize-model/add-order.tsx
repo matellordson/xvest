@@ -43,5 +43,5 @@ export default async function addOrder({
     self_drive: orderSelfDrive,
   });
 
-  redirect("/protected/dashboard/tesla");
+  redirect("/protected/dashboard/portfolio");
 }

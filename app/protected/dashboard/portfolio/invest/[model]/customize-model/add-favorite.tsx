@@ -43,7 +43,7 @@ export default async function addFavorite({
     self_drive: favoriteSelfDrive,
   });
 
-  redirect("/protected/dashboard/tesla");
+  redirect("/protected/dashboard/portfolio");
 
   if (error) {
     console.log(error);

@@ -158,7 +158,7 @@ export default function ModelX({
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
           <div className="h-[60%] w-full pt-2 text-center text-shadow">
             <Link
-              href={"/protected/dashboard/tesla"}
+              href={"/protected/dashboard/portfolio"}
               className="group ml-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md"
             >
               <ChevronLeft
@@ -729,7 +729,7 @@ export default function ModelX({
             <div className="h-[50%] w-full">
               <div className="pt-2 text-center text-shadow">
                 <Link
-                  href={"/protected/dashboard/tesla"}
+                  href={"/protected/dashboard/portfolio"}
                   className="group ml-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md"
                 >
                   <ChevronLeft

@@ -7,19 +7,24 @@ export const revalidate = 0;
 
 export default async function TeslaFavorite() {
   const supabase = await createClient();
-  const { data: favorites } = await supabase
+  const { data: favorites, count } = await supabase
     .from("tesla favorite")
-    .select("model, price, id, plan")
+    .select("model, price, id, plan", { count: "exact" })
     .order("created_at", { ascending: false });
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
-        <div className="flex items-center justify-between">
-          <p className="text-xl font-semibold tracking-tight">Watchlist</p>
-          <button className="text-sm tracking-wide text-muted-foreground transition hover:text-primary">
-            Edit
-          </button>
-        </div>
+        {count! < 1 ? (
+          ""
+        ) : (
+          <div className="flex items-center justify-between">
+            <p className="text-xl font-semibold tracking-tight">Watchlist</p>
+            <button className="text-sm tracking-wide text-muted-foreground transition hover:text-primary">
+              Edit
+            </button>
+          </div>
+        )}
+
         {favorites?.map((favorite) => (
           <Link href={"#"} key={favorite.id} className="group">
             <div className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out group-hover:bg-secondary">

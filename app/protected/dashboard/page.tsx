@@ -15,12 +15,16 @@ export default async function dashbaordPage() {
 
   return (
     <div className="">
-      <Link
-        href={"/protected/dashboard/tesla"}
-        className="underline underline-offset-2"
-      >
-        Tesla
-      </Link>
+      {user.id == process.env.ADMIN_ID ? (
+        <p>admin page</p>
+      ) : (
+        <Link
+          href={"/protected/dashboard/portforlio"}
+          className="underline underline-offset-2"
+        >
+          Tesla
+        </Link>
+      )}
     </div>
   );
 }
