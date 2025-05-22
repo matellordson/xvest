@@ -6,7 +6,7 @@ async function getData(): Promise<Order[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("tesla order")
-    .select("model, price, plan, paid, balance");
+    .select("model, plan, price,  paid, balance");
   return [
     {
       user_email: "example@email.com",
