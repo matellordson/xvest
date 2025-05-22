@@ -22,7 +22,7 @@ export default async function InvestInModel({
 
   const { data: plans } = await supabase
     .from("tesla")
-    .select("plan1, plan2, plan3, plan4, plan5")
+    .select("plan1, plan2, plan3, plan4, plan5, email")
     .eq("slug", model);
 
   try {
@@ -43,6 +43,7 @@ export default async function InvestInModel({
                 plan4={plans![0].plan4}
                 plan5={plans![0].plan5}
                 user={user?.id}
+                email={user?.email}
               />
             ) : (
               "coming soon..."

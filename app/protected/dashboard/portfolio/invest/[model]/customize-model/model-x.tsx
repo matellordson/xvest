@@ -27,6 +27,7 @@ interface propsType {
   plan4: number;
   plan5: number;
   user: string | undefined;
+  email: string | undefined;
 }
 
 export default function ModelX({
@@ -38,6 +39,7 @@ export default function ModelX({
   plan4,
   plan5,
   user,
+  email,
 }: propsType) {
   const [teslaModel, setTeslaModel] = useState<string>(model);
   const [currentPrice, setPrice] = useState<number>(price);
@@ -95,6 +97,8 @@ export default function ModelX({
     const orderSteering = steering;
     const orderSelfDrive = selfDrive;
     const currentUser = user;
+    const userEmailAddress = email;
+
     addOrder({
       orderModel,
       orderPrice,
@@ -106,6 +110,7 @@ export default function ModelX({
       orderSteering,
       orderSelfDrive,
       currentUser,
+      userEmailAddress,
     });
   }
 

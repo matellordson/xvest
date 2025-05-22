@@ -14,6 +14,7 @@ interface orderType {
   orderSteering: string;
   orderSelfDrive: string;
   currentUser: any;
+  userEmailAddress: string | undefined;
 }
 
 export default async function addOrder({
@@ -27,6 +28,7 @@ export default async function addOrder({
   orderSteering,
   orderSelfDrive,
   currentUser,
+  userEmailAddress,
 }: orderType) {
   const supabase = await createClient();
 
@@ -41,6 +43,7 @@ export default async function addOrder({
     seat: orderSeat,
     steering: orderSteering,
     self_drive: orderSelfDrive,
+    user_email: userEmailAddress,
   });
 
   redirect("/protected/dashboard/portfolio");

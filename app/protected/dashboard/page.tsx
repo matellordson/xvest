@@ -1,6 +1,7 @@
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import AdminPage from "./admin/page";
 
 export default async function dashbaordPage() {
   const supabase = await createClient();
@@ -16,7 +17,7 @@ export default async function dashbaordPage() {
   return (
     <div className="">
       {user.id == process.env.ADMIN_ID ? (
-        <p>admin page</p>
+        <AdminPage />
       ) : (
         <Link
           href={"/protected/dashboard/portforlio"}
