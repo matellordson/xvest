@@ -16,8 +16,8 @@ export default async function AdminPage() {
   const data = await getData();
 
   return (
-    <div className="container mx-auto py-10">
-      <p className="mb-5 text-2xl font-semibold">Admin Panel</p>
+    <div className="mx-auto px-3 py-10">
+      <p className="text-2xl font-semibold">Admin Panel</p>
       <DataTable columns={columns} data={data} />
     </div>
   );
