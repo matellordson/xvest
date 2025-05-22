@@ -9,6 +9,7 @@ export default async function onBoardingAction(formData: FormData) {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+  const currentUser = user!.id as string;
   const firstName = formData.get("first_name");
   const lastName = formData.get("last_name");
   const email = formData.get("email");
@@ -16,7 +17,7 @@ export default async function onBoardingAction(formData: FormData) {
   const zip = formData.get("zip");
 
   const { error } = await supabase.from("user profile").insert({
-    user: user?.id,
+    user: currentUser,
     first_name: firstName,
     last_name: lastName,
     email: email,
