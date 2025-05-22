@@ -17,7 +17,7 @@ export default async function onBoardingAction(formData: FormData) {
   const zip = formData.get("zip");
 
   const { error } = await supabase.from("user profile").insert({
-    user: currentUser,
+    user_id: currentUser,
     first_name: firstName,
     last_name: lastName,
     email: email,

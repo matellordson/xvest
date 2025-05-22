@@ -44,8 +44,4 @@ export default async function addOrder({
   });
 
   redirect("/protected/dashboard/tesla");
-
-  if (error) {
-    console.log(error);
-  }
 }
