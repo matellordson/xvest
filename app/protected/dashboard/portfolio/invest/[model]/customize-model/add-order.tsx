@@ -43,7 +43,7 @@ export default async function addOrder({
     seat: orderSeat,
     steering: orderSteering,
     self_drive: orderSelfDrive,
-    user_email: userEmailAddress,
+    email: userEmailAddress,
   });
 
   redirect("/protected/dashboard/portfolio");

@@ -16,7 +16,7 @@ import {
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Order = {
-  user_email: string | null;
+  email: string | null;
   model: string;
   plan: number;
   price: number;
@@ -26,7 +26,7 @@ export type Order = {
 
 export const columns: ColumnDef<Order>[] = [
   {
-    accessorKey: "user_email",
+    accessorKey: "email",
     header: ({ column }) => {
       return (
         <Button
