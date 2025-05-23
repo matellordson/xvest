@@ -13,6 +13,19 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { SubmitButton } from "@/components/submit-button";
+
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type Order = {
@@ -102,14 +115,48 @@ export const columns: ColumnDef<Order>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
+            <DropdownMenuSeparator />
+            {/* <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(order.id)}
             >
               Copy payment ID
             </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuSeparator /> */}
+
+            {/* Update investment */}
+            <Dialog>
+              <DialogTrigger className="rounded px-2 py-1 text-sm hover:bg-muted">
+                Update investment
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>Update paid value</DialogTitle>
+                  <DialogDescription>
+                    This action will change client paid value for the model.
+                  </DialogDescription>
+                </DialogHeader>
+                <DialogFooter>
+                  <form className="space-y-2">
+                    <Label htmlFor="paid">
+                      <span className="text-muted-foreground">
+                        Current payment:{" "}
+                      </span>
+                      $
+                      {order.paid.toLocaleString("en-US", {
+                        maximumFractionDigits: 2,
+                      })}
+                    </Label>
+                    <Input
+                      required
+                      type="number"
+                      defaultValue={order.paid}
+                      name="paid"
+                    />
+                    <SubmitButton>Submit</SubmitButton>
+                  </form>
+                </DialogFooter>
+              </DialogContent>
+            </Dialog>
           </DropdownMenuContent>
         </DropdownMenu>
       );
