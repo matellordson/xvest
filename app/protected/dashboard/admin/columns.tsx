@@ -25,6 +25,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { SubmitButton } from "@/components/submit-button";
+import adminUpdate from "./update-action";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -106,59 +107,57 @@ export const columns: ColumnDef<Order>[] = [
       const order = row.original;
 
       return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
-              <MoreHorizontal className="h-4 w-4" />
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button variant="outline" size={"sm"}>
+              Update
             </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            {/* <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(order.id)}
-            >
-              Copy payment ID
-            </DropdownMenuItem>
-            <DropdownMenuSeparator /> */}
+          </DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Update paid value</DialogTitle>
+              <DialogDescription>
+                This action will change client paid value for the model.
+              </DialogDescription>
+            </DialogHeader>
+            <form className="space-y-2">
+              <Label>
+                <span className="text-muted-foreground">Current payment: </span>
+                $
+                {order.paid.toLocaleString("en-US", {
+                  maximumFractionDigits: 2,
+                })}
+              </Label>
+              <Input
+                required
+                type="text"
+                defaultValue={order.paid}
+                name="paid"
+              />
+              <SubmitButton formAction={adminUpdate.bind(null, order.id)}>
+                Submit
+              </SubmitButton>
+            </form>
+          </DialogContent>
+        </Dialog>
 
-            {/* Update investment */}
-            <Dialog>
-              <DialogTrigger className="rounded px-2 py-1 text-sm hover:bg-muted">
-                Update investment
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Update paid value</DialogTitle>
-                  <DialogDescription>
-                    This action will change client paid value for the model.
-                  </DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                  <form className="space-y-2">
-                    <Label htmlFor="paid">
-                      <span className="text-muted-foreground">
-                        Current payment:{" "}
-                      </span>
-                      $
-                      {order.paid.toLocaleString("en-US", {
-                        maximumFractionDigits: 2,
-                      })}
-                    </Label>
-                    <Input
-                      required
-                      type="number"
-                      defaultValue={order.paid}
-                      name="paid"
-                    />
-                    <SubmitButton>Submit</SubmitButton>
-                  </form>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        // <DropdownMenu>
+        //   <DropdownMenuTrigger asChild>
+        //     <Button variant="ghost" className="h-8 w-8 p-0">
+        //       <span className="sr-only">Open menu</span>
+        //       <MoreHorizontal className="h-4 w-4" />
+        //     </Button>
+        //   </DropdownMenuTrigger>
+        //   <DropdownMenuContent align="end">
+        //     <DropdownMenuLabel>Actions</DropdownMenuLabel>
+        //     <DropdownMenuSeparator />
+        //     <DropdownMenuItem
+        //       onClick={() => navigator.clipboard.writeText(order.id)}
+        //     >
+        //       Copy payment ID
+        //     </DropdownMenuItem>
+        //   </DropdownMenuContent>
+        // </DropdownMenu>
       );
     },
   },
