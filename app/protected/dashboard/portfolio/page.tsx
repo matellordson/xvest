@@ -22,6 +22,7 @@ import TeslaOrder from "./(tesla-components)/tesla-order";
 import TeslaFavorite from "./(tesla-components)/tesla-favorite";
 import OrderCount from "./(tesla-components)/(tesla-count)/order-count";
 import FavoriteCount from "./(tesla-components)/(tesla-count)/favorite-count";
+import TeslaBanner from "./(tesla-components)/tesla-banner";
 
 export default function ExploreTesla() {
   const portals = [
@@ -89,13 +90,13 @@ export default function ExploreTesla() {
     <div className="px-3">
       <Link
         href={"/protected/dashboard"}
-        className="group flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md hover:bg-muted"
+        className="group mb-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md hover:bg-muted"
       >
         <ChevronLeft size={20} className="relative group-hover:right-1" />
         <p className="text-sm">Dashboard</p>
       </Link>
       <div className="space-y-3">
-        <p className="pt-5 text-3xl font-semibold">Tesla</p>
+        <TeslaBanner />
         <div className="divide-y rounded-lg border bg-skin px-3 py-1">
           {portals.map((portal) => (
             <div
