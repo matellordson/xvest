@@ -49,7 +49,7 @@ export default async function TeslaModels() {
                   </div>
                 </div>
                 {/* ceneter */}
-                <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
+                {/* <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
                   {data.model == "Cyber Truck" ? (
                     <Image
                       src={"/model-showcase/cyber-truck.png"}
@@ -98,7 +98,7 @@ export default async function TeslaModels() {
                   ) : (
                     ""
                   )}
-                </div>
+                </div> */}
                 {/* right */}
                 <div className="flex flex-col items-end justify-between gap-y-1">
                   <p className="font-semibold tracking-wide">

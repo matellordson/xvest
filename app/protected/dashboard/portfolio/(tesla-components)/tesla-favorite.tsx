@@ -46,7 +46,7 @@ export default async function TeslaFavorite() {
               <Link href={"#"} className="group">
                 <div className="flex items-center justify-between rounded px-3 py-2 transition-colors hover:shadow-lg group-hover:bg-muted dark:shadow-black">
                   {/* left */}
-                  <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
+                  {/* <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
                     {favorite.model == "cyber-truck" ? (
                       <Image
                         src={"/model-showcase/cyber-truck.png"}
@@ -95,7 +95,7 @@ export default async function TeslaFavorite() {
                     ) : (
                       ""
                     )}
-                  </div>
+                  </div> */}
                   <div className="flex w-fit items-center justify-between gap-x-2">
                     <div className="text-lg">
                       <span className="text-lg">
