@@ -8,7 +8,8 @@ async function getData(): Promise<Order[]> {
   const supabase = await createClient();
   const { data } = await supabase
     .from("tesla_order")
-    .select("model, plan, price,  paid, email, id");
+    .select("model, plan, price,  paid, email, id")
+    .eq("is_complete", false);
   return data as Order[];
 }
 

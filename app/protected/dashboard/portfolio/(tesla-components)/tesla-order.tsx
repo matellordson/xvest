@@ -63,57 +63,6 @@ export default async function TeslaOrder() {
             <div className="" key={order.id}>
               <Link href={"#"} className="group">
                 <div className="flex items-center justify-between rounded px-3 py-2 transition-colors hover:shadow-lg group-hover:bg-muted dark:shadow-black">
-                  {/* left */}
-                  {/* <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
-                    {order.model == "cyber-truck" ? (
-                      <Image
-                        src={"/model-showcase/cyber-truck.png"}
-                        alt={"cyber-truck"}
-                        priority
-                        width={100}
-                        height={100}
-                        className="w-40 dark:opacity-80"
-                      />
-                    ) : order.model == "model-3" ? (
-                      <Image
-                        src={"/model-showcase/model-3.png"}
-                        alt={"model-3"}
-                        priority
-                        width={100}
-                        height={100}
-                        className="w-40 dark:opacity-80"
-                      />
-                    ) : order.model == "model-s" ? (
-                      <Image
-                        src={"/model-showcase/model-s.png"}
-                        alt={"model-s"}
-                        priority
-                        width={100}
-                        height={100}
-                        className="w-40 dark:opacity-80"
-                      />
-                    ) : order.model == "model-x" ? (
-                      <Image
-                        src={"/model-showcase/model-x.png"}
-                        alt={"model-x"}
-                        priority
-                        width={100}
-                        height={100}
-                        className="w-40 dark:opacity-80"
-                      />
-                    ) : order.model == "model-y" ? (
-                      <Image
-                        src={"/model-showcase/model-y.png"}
-                        alt={"model-y"}
-                        priority
-                        width={100}
-                        height={100}
-                        className="w-40 dark:opacity-80"
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </div> */}
                   <div className="flex w-fit items-center justify-between gap-x-2">
                     <div className="">
                       <p className="font-semibold tracking-wide">

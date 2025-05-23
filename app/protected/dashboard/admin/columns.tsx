@@ -4,14 +4,6 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 import {
   Dialog,
@@ -26,6 +18,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { SubmitButton } from "@/components/submit-button";
 import adminUpdate from "./update-action";
+import Complete from "./complete";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -107,39 +100,58 @@ export const columns: ColumnDef<Order>[] = [
       const order = row.original;
 
       return (
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="outline" size={"sm"}>
-              Update
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Update paid value</DialogTitle>
-              <DialogDescription>
-                This action will change client paid value for the model.
-              </DialogDescription>
-            </DialogHeader>
-            <form className="space-y-2">
-              <Label>
-                <span className="text-muted-foreground">Current payment: </span>
-                $
-                {order.paid.toLocaleString("en-US", {
-                  maximumFractionDigits: 2,
-                })}
-              </Label>
-              <Input
-                required
-                type="text"
-                defaultValue={order.paid}
-                name="paid"
-              />
-              <SubmitButton formAction={adminUpdate.bind(null, order.id)}>
-                Submit
-              </SubmitButton>
-            </form>
-          </DialogContent>
-        </Dialog>
+        <div className="flex items-center space-x-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size={"sm"}>
+                Update
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Update paid value</DialogTitle>
+                <DialogDescription>
+                  This action will change client paid value for the model.
+                </DialogDescription>
+              </DialogHeader>
+              <form className="space-y-2">
+                <Label>
+                  <span className="text-muted-foreground">
+                    Current payment:{" "}
+                  </span>
+                  $
+                  {order.paid.toLocaleString("en-US", {
+                    maximumFractionDigits: 2,
+                  })}
+                </Label>
+                <Input
+                  required
+                  type="text"
+                  defaultValue={order.paid}
+                  name="paid"
+                />
+                <SubmitButton formAction={adminUpdate.bind(null, order.id)}>
+                  Submit
+                </SubmitButton>
+              </form>
+            </DialogContent>
+          </Dialog>
+          <form className="">
+            <Input
+              required
+              type="hidden"
+              defaultValue={order.paid}
+              name="paid"
+            />
+            <SubmitButton
+              variant={"outline"}
+              size={"sm"}
+              formAction={Complete.bind(null, order.id)}
+            >
+              Complete
+            </SubmitButton>
+          </form>
+        </div>
 
         // <DropdownMenu>
         //   <DropdownMenuTrigger asChild>

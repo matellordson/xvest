@@ -153,7 +153,7 @@ export default function ModelX({
       {/* mobile */}
       <div className="flex h-screen w-full items-center justify-center lg:hidden">
         <Image
-          src={"/model-order/model-x.png"}
+          src={"/model-order/model-x.jpg"}
           alt="model-x"
           width={2000}
           height={2000}
@@ -723,7 +723,7 @@ export default function ModelX({
         {/* left */}
         <div className="w-[60%]">
           <Image
-            src={"/model-order/model-x.png"}
+            src={"/model-order/model-x.jpg"}
             alt="model-x"
             width={2000}
             height={2000}
