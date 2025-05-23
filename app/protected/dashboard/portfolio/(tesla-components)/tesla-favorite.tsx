@@ -27,7 +27,7 @@ export default async function TeslaFavorite() {
 
         {favorites?.map((favorite) => (
           <Link href={"#"} key={favorite.id} className="group">
-            <div className="group flex items-center justify-between rounded-lg border bg-skin px-3 py-2 transition ease-in-out group-hover:bg-secondary">
+            <div className="flex items-center justify-between rounded px-3 py-2 transition-colors hover:shadow-lg group-hover:bg-muted dark:shadow-black">
               {/* left */}
               <div className="absolute left-6 mx-auto flex w-[88vw] items-center justify-center">
                 {favorite.model == "cyber-truck" ? (

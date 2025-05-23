@@ -20,7 +20,7 @@ export default async function TeslaModels() {
         {teslaModel?.map((data) => (
           <div className="" key={data.model}>
             <Link
-              href={`/protected/dashboard/tesla/invest/${data.slug}`}
+              href={`/protected/dashboard/portfolio/invest/${data.slug}`}
               className="group"
             >
               <div className="flex items-center justify-between rounded px-3 py-2 transition-colors hover:shadow-lg group-hover:bg-muted dark:shadow-black">
