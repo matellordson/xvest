@@ -109,7 +109,7 @@ export default function ExploreTesla() {
   ];
 
   return (
-    <div className="px-3">
+    <div className="px-3 pb-10">
       <Link
         href={"/protected/dashboard"}
         className="group mb-3 flex w-fit justify-center rounded-lg px-1 py-1 pr-2 font-semibold tracking-wide backdrop-blur-md hover:bg-muted"
