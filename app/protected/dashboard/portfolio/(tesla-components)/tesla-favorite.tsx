@@ -14,7 +14,7 @@ export default async function TeslaFavorite() {
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
-        {count! <= 0 ? (
+        {count == 0 ? (
           <div className="flex flex-col items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"

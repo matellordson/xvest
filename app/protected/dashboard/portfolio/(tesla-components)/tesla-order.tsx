@@ -8,13 +8,13 @@ export default async function TeslaOrder() {
   const supabase = await createClient();
   const { data: orders, count } = await supabase
     .from("tesla_order")
-    .select("model, price, id, plan, paid")
+    .select("model, price, id, plan, paid", { count: "exact" })
     .order("created_at", { ascending: false });
 
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
-        {count! <= 0 ? (
+        {count == 0 ? (
           <div className="flex flex-col items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
