@@ -158,7 +158,7 @@ export default function ModelX({
           width={2000}
           height={2000}
           priority
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center opacity-90 dark:opacity-70"
         />
         <div className="absolute flex h-screen w-screen flex-col items-center justify-center">
           <div className="h-[60%] w-full pt-2 text-center text-shadow">
