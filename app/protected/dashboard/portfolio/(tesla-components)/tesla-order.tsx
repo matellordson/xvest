@@ -14,7 +14,7 @@ export default async function TeslaOrder() {
   return (
     <div>
       <div className="mx-3 flex flex-col space-y-2">
-        {count == 0 ? (
+        {count! <= 0 ? (
           ""
         ) : (
           <div className="flex items-center justify-between border-b border-dashed">
